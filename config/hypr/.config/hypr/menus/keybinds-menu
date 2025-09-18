@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+set -e
+
+# Convert modmask number into readable modifiers
+decode_modmask() {
+    local mask=$1
+    local mods=()
+    (( mask & 64 )) && mods+=("SUPER")
+    (( mask & 4 ))  && mods+=("CTRL")
+    (( mask & 1 ))  && mods+=("SHIFT")
+    (( mask & 8 ))  && mods+=("ALT")
+    if [ ${#mods[@]} -gt 0 ]; then
+        printf "%s + " "${mods[@]}"
+    fi
+}
+
+# Map mouse numbers to human readable
+mouse_map() {
+    case "$1" in
+        1|272) echo "Left Click" ;;
+        2|274) echo "Middle Click" ;;
+        3|273) echo "Right Click" ;;
+        4) echo "ScrollUp" ;;
+        5) echo "ScrollDown" ;;
+        *) echo "Mouse$1" ;;
+    esac
+}
+
+# Parse Hyprland binds
+hyprctl binds -j | jq -r '
+  .[] | select(.key != null and .key != "") | [.modmask, .key, .description] | @tsv
+' | while IFS=$'\t' read -r modmask key desc; do
+    # Skip entries that look like XF86 keys, audio keys, or exec without real key
+    [[ "$key" =~ ^XF86|playerctl ]] && continue
+
+    # Convert modmask
+    mods=$(decode_modmask "$modmask")
+
+    # Convert mouse codes
+    if [[ "$key" =~ ^mouse:([0-9]+)$ ]]; then
+        num="${BASH_REMATCH[1]}"
+        key=$(mouse_map "$num")
+    fi
+
+    echo "${desc} → ${mods}${key}"
+done | rofi -dmenu -i -theme menuonly -p "Hyprland Binds"

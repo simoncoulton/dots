@@ -1,0 +1,7 @@
+#!/bin/bash
+
+pidof hyprlock || hyprlock &
+
+if pgrep -x "1password" >/dev/null; then
+    1password --lock &
+fi

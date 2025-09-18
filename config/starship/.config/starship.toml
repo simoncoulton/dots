@@ -1,0 +1,107 @@
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$git_metrics\
+$fill\
+$nodejs\
+$python\
+$rust\
+$cmd_duration $jobs $time\
+$line_break\
+$character"""
+
+palette = 'catppuccin_frappe'
+
+command_timeout = 500
+
+[fill]
+symbol = " "
+
+[directory]
+style = "blue"
+read_only = " "
+truncation_length = 4
+truncate_to_repo = false
+truncation_symbol = "…/"
+
+[character]
+success_symbol = "[❯](purple)"
+error_symbol = "[❯](red)"
+vicmd_symbol = "[❮](green)"
+
+[jobs]
+symbol = ""
+style = "bold red"
+number_threshold = 1
+format = "[$symbol]($style)"
+
+[git_branch]
+symbol = " "
+format = "[$symbol$branch]($style) "
+style = "surface2"
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style) )'
+style = "cyan"
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = "surface2"
+
+[git_metrics]
+disabled = false
+
+[cmd_duration]
+format = "[$duration]($style)"
+style = "yellow"
+
+[rust]
+style = "maroon"
+symbol = " "
+
+[nodejs]
+symbol = " "
+style = "green"
+format = "[$symbol($version )]($style)"
+
+[python]
+symbol = " "
+style = "yellow"
+format = "[$symbol($version )]($style)"
+
+[time]
+disabled = false
+style = "bold lavender"
+format = "[  $time]($style)"
+
+[palettes.catppuccin_frappe]
+rosewater = "#f2d5cf"
+flamingo = "#eebebe"
+pink = "#f4b8e4"
+mauve = "#ca9ee6"
+red = "#e78284"
+maroon = "#ea999c"
+peach = "#ef9f76"
+yellow = "#e5c890"
+green = "#a6d189"
+teal = "#81c8be"
+sky = "#99d1db"
+sapphire = "#85c1dc"
+blue = "#8caaee"
+lavender = "#babbf1"
+text = "#c6d0f5"
+subtext1 = "#b5bfe2"
+subtext0 = "#a5adce"
+overlay2 = "#949cbb"
+overlay1 = "#838ba7"
+overlay0 = "#737994"
+surface2 = "#626880"
+surface1 = "#51576d"
+surface0 = "#414559"
+base = "#303446"
+mantle = "#292c3c"
+crust = "#232634"

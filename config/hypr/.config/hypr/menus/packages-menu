@@ -1,0 +1,15 @@
+#!/bin/bash
+
+items="Install\nInstall (AUR)\nRemove"
+output=$(echo -e $items | rofi -dmenu -i -theme menuonly)
+runner="ghostty --class=com.dotfiles.PackageManager --window-width=100 --window-height=20 -e"
+
+if [[ "$output" == "Install" ]]; then
+    $runner pkg-install
+elif [[ "$output" == "Install (AUR)" ]]; then
+    $runner pkg-aur-install
+elif [[ "$output" == "Remove" ]]; then
+    $runner pkg-remove
+else
+    echo "Select a command"
+fi

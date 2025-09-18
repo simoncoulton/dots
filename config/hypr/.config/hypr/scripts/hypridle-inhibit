@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+# Polling interval in seconds
+INTERVAL=5
+
+# Player name patterns to match (partial matches allowed)
+VIDEO_PATTERNS=("mpv" "vlc" "firefox" "chromium" "brave" "google-chrome")
+
+STATE="unknown"
+
+while true; do
+    # Get all active players
+    PLAYERS=$(playerctl -l 2>/dev/null || true)
+
+    INHIBIT=false
+    for P in $PLAYERS; do
+        for PATTERN in "${VIDEO_PATTERNS[@]}"; do
+            if [[ "$P" == *"$PATTERN"* ]]; then
+                STATUS=$(playerctl -p "$P" status 2>/dev/null || echo "Stopped")
+                if [[ "$STATUS" == "Playing" ]]; then
+                    INHIBIT=true
+                    MATCHED="$P"
+                    break 2
+                fi
+            fi
+        done
+    done
+
+    if $INHIBIT; then
+        if [[ "$STATE" != "paused" ]]; then
+            echo "Video playing ($MATCHED) - pausing hypridle"
+            pkill -STOP hypridle
+            STATE="paused"
+        fi
+    else
+        if [[ "$STATE" != "running" ]]; then
+            echo "No video playing - resuming hypridle"
+            pkill -CONT hypridle
+            STATE="running"
+        fi
+    fi
+
+    sleep "$INTERVAL"
+done

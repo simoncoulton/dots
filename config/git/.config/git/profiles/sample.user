@@ -1,0 +1,6 @@
+[user]
+    name = Your Name
+    email = you@email.com
+
+[includeIf "gitdir:~/some-path/"]
+	path = ~/git/.config/git/profiles/[profile name]

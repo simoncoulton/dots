@@ -1,0 +1,395 @@
+{
+  "reload_style_on_change": true,
+  "layer": "top",
+  "position": "top",
+  "spacing": 0,
+  "height": 36,
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/window"    
+  ],
+  "modules-center": [
+    "clock",
+    "custom/pkg_updates"
+  ],
+  "modules-right": [
+    "group/tray-expander",
+    "network",
+    "pulseaudio",
+    "cpu",
+    "battery",
+    "custom/power"
+  ],
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "format": "{icon}",
+    "format-icons": {
+      "default": "",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "active": "󱓻"
+    },
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": []
+    }
+  },
+  "cpu": {
+    "interval": 5,
+    "format": "<span font='20px'>󰍛</span>",
+    "on-click": "ghostty -e btop",
+    "on-click-right": "ghostty -e systemctl-tui"
+  },
+    "memory": {
+        "format": " {}%  "
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": " {temperatureC}°C {icon} ",
+        "format-icons": ["", "", ""]
+    },
+  "clock": {
+    "format": "{:L%A %H:%M}",
+    "format-alt": "{:L%d %B W%V %Y}",
+    "tooltip": false,
+    "on-click-middle": "restart-app waybar"
+  },
+  "hyprland/window": {
+    "format": "{initialClass}",
+    "icon": false,
+    "icon-size": 14,
+    "seperate-outputs": false,
+    "rewrite": {
+      "": "  Arch",
+      "Mozilla Firefox": "Firefox",
+      "(.*)ghostty": "Ghostty",
+      "discord(.*)": "Discord",
+      "Code": "VS Code",
+      "Docker Desktop": " Docker",
+      "zen": "Zen",
+      "com.dotfiles.(.*)": "$1"
+    },
+    "on-click-middle": "restart-app waybar"
+  },
+  "network": {
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "format": "<span font='20px'>{icon}</span>",
+    "format-wifi": "{icon}",
+    "format-ethernet": "<span font='20px'>󰀂</span>",
+    "format-disconnected": "󰖪",
+    "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-disconnected": "Disconnected",
+    "interval": 3,
+    "spacing": 1
+  },
+  "bluetooth": {
+    "format": "",
+    "format-disabled": "󰂲",
+    "format-connected": "",
+    "tooltip-format": "Devices connected: {num_connections}",
+    "on-click": "blueberry"
+  },
+  "pulseaudio": {
+    "format": "<span font='16px'>{icon}</span>",
+    "on-click": "ghostty --class=Wiremix -e wiremix",
+    "on-click-right": "pamixer -t",
+    "on-click-middle": "ghostty --class=Cava -e cava",
+    "tooltip-format": "Playing at {volume}%",
+    "scroll-step": 5,
+    "format-muted": "<span font='20px'>󰝟</span>",
+    "format-icons": {
+      "default": ["", "", ""]
+    }
+  },
+  "group/tray-expander": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 600,
+      "children-class": "tray-group-item"
+    },
+    "modules": ["custom/expand-icon", "tray"]
+  },
+  "custom/expand-icon": {
+    "format": "<span font='24px'>󰇘</span>",
+    "tooltip": false
+  },
+  "tray": {
+    "icon-size": 14,
+    "spacing": 14
+  },
+  "custom/music": {
+        "format": "   {} ",
+        "escape": true,
+        "interval": 5,
+        "tooltip": false,
+        "exec": "playerctl metadata --format='{{ title }}'",
+        "on-click": "playerctl play-pause",
+        "max-length": 50
+    },
+    "custom/power": {
+      "format": "<span font='20px'></span>",
+      "on-click": "~/.config/hypr/menus/power-menu",
+      "tooltip-format": "Power Menu"
+    },
+    "custom/pkg_updates": {
+      "exec": "~/.config/waybar/scripts/pkg-update-checker",
+      "interval": 86400,
+      "tooltip": true,
+      "on-click-middle": "ghostty --class=com.dotfiles.Updater -e ~/.config/hypr/scripts/pkg-update"
+  }
+}
+
+// {
+//   "layer": "top",
+//   "margin-left": 3,
+//   "margin-right": 3,
+//   "margin-top": 2,
+//   "margin-bottom": 0,
+//   "modules-left": ["hyprland/workspaces", "cpu", "memory", "network#speed"],
+//   "modules-center": ["clock"],
+//   "modules-right": [
+//     "hyprland/window",
+//     "custom/gh",
+//     "temperature#gpu",
+//     "custom/transparency",
+//     "custom/wallpaper",
+//     "wireplumber",
+//     "backlight",
+//     "network",
+//     "battery"
+//   ],
+//   "custom/gh": {
+//     "exec": "sleep 1 & ~/.config/waybar/scripts/weekly_commits DARK",
+//     "return-type": "json",
+//     "interval": 2400,
+//     "tooltip": true,
+//     "on-click": "xdg-open https://github.com/ad1822",
+//     "on-click-right": "~/.config/waybar/scripts/weekly_commits DARK"
+//   },
+//   "hyprland/window": {
+//     "format": "{initialClass}",
+//     "icon": true,
+//     "icon-size": 19,
+//     "seperate-outputs": true,
+//     "rewrite": {
+//       "": "  Arch",
+//       "Mozilla Firefox": "Firefox",
+//       "(.*) Thunar": "Thunar",
+//       "(.*)obs(.*)": "OBS",
+//       "Spotify (.*)": "Spotify",
+//       "discord(.*)": "Discord",
+//       "Code": "VS Code",
+//       "Docker Desktop": " Docker",
+//       "kitty": "Kitty",
+//       "zen": "Zen"
+//     },
+//     "on-click-middle": "pkill waybar && hyprctl dispatch exec waybar"
+//   },
+//   "custom/cava": {
+//     "format": "{}",
+//     "exec": "~/.config/waybar/scripts/cava.sh",
+//     "on-click": "kitty cava"
+//   },
+//   "custom/update": {
+//     "format": "{}",
+//     "exec": "~/.config/waybar/scripts/check-updates.sh"
+//     // "on-click": "kitty cava"
+//   },
+//   "temperature#gpu": {
+//     "thermal-zone": 5,
+//     "critical-threshold": 80,
+//     "format-critical": "{temperatureC}°C ",
+//     "format": "{temperatureC}°C ",
+//     "tooltip": false
+//   },
+//   "backlight": {
+//     "device": "intel_backlight",
+//     "scroll-step": 5,
+//     "format": "{icon}",
+//     "format-icons": ["󰃞 ", "󰃟 ", "󰃝 ", "󰃠 "],
+//     "tooltip": true,
+//     "tooltip-format": "{percent}%"
+//   },
+//   "network#speed": {
+//     "interval": 1,
+//     "format": "{ifname}%%",
+//     "format-wifi": " {bandwidthDownBytes}  {bandwidthUpBytes}",
+//     "format-ethernet": " {bandwidthDownBytes}  {bandwidthUpBytes} ",
+//     "format-disconnected": "󰌙",
+//     "tooltip-format": "{ipaddr}",
+//     "format-linked": "󰈁 {ifname} (No IP)",
+//     "tooltip-format-wifi": "{essid} {icon} {signalStrength}%",
+//     "tooltip-format-ethernet": "{ifname} 󰌘",
+//     "tooltip-format-disconnected": "󰌙 Disconnected",
+//     "max-length": 22,
+//     "min-length": 20,
+//     "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"]
+//   },
+//   "custom/launcher": {
+//     "format": "",
+//     "tooltip": false,
+//     "on-click": "~/.config/rofi/launcher/launcher.sh"
+//   },
+//   "custom/transparency": {
+//     "format": " ",
+//     "tooltip": false,
+//     "on-click": "~/.config/waybar/scripts/toggle-trans.sh",
+//     "format-alt": " "
+//   },
+//   "cpu": {
+//     "interval": 1,
+//     "format": "{usage}% <span font='Font Awesome 6 Free-Solid'>\uf2db</span>",
+//     "on-click": "kitty btop"
+//   },
+//   "memory": {
+//     "interval": 1,
+//     "format": "{percentage}% <span font='Font Awesome 5 Free'>\uf538</span>",
+//     "on-click": "kitty btop",
+//     "tooltip-format": "{used}/{total} GiB"
+//   },
+//   "hyprland/workspaces": {
+//     "all-outputs": true,
+//     "warp-on-scroll": true,
+//     "enable-bar-scroll": true,
+//     "disable-scroll-wraparound": false,
+//     "format": " {icon} ",
+//     "format-icons": {
+//       "active": "●",
+//       "default": "●"
+//     },
+//     "persistent-workspaces": {
+//       "*": 4
+//     },
+//     "on-click": "activate",
+//     "on-scroll-up": "hyprctl dispatch workspace e-1",
+//     "on-scroll-down": "hyprctl dispatch workspace e+1"
+//   },
+//   // "hyprland/workspaces": {
+//   //   "all-outputs": true,
+//   //   "active-only": false,
+//   //   "on-scroll-up": "hyprctl dispatch workspace e+1",
+//   //   "on-scroll-down": "hyprctl dispatch workspace e-1",
+//   //   "format": "{icon}",
+//   //   "format-icons": {
+//   //     "active": "󰮯",
+//   //     "default": "󰊠",
+//   //     "special": "S"
+//   //   },
+//   //   "persistent-workspaces": {
+//   //     "*": 4
+//   //   },
+//   //   "on-click": "activate",
+//   //   "on-scroll-up": "hyprctl dispatch workspace e-1",
+//   //   "on-scroll-down": "hyprctl dispatch workspace e+1"
+//   // },
+//   "custom/weather": {
+//     "format": "{}°C",
+//     "tooltip": false,
+//     "interval": 3600,
+//     "exec": "wttrbar --location 'Ahmedabad'",
+//     "return-type": "json"
+//   },
+//   "clock": {
+//     "format": "{:%H:%M / %h %d}",
+//     "tooltip": true,
+//     "tooltip-format": "<tt>{calendar}</tt>"
+//   },
+//   "custom/wallpaper": {
+//     "format": "\uf03e",
+//     "on-click": "~/.config/waybar/scripts/change-wallpaper.sh && hyprpaper",
+//     "tooltip": false,
+//     "on-click-right": "kitty -e ~/.config/waybar/scripts/select-wallpaper.sh"
+//   },
+//   "network": {
+//     "format-wifi": " {icon}",
+//     "format-ethernet": "󰈀",
+//     "format-icons": ["󰤯 ", "󰤟 ", "󰤢 ", "󰤢 ", "󰤨 "],
+//     "format-disconnected": "󰪎",
+//     "interval": 5,
+//     "tooltip-format-wifi": " {bandwidthDownBytes} |  {bandwidthUpBytes} | {essid}",
+//     "tooltip-format-disconnected": "Disconnected",
+//     "on-click": "exec ~/.config/rofi/wifi/wifi.sh",
+//     "on-click-right": "kitty -e nmtui"
+//   },
+//   "battery": {
+//     "states": {
+//       "good": 95,
+//       "warning": 30,
+//       "critical": 15
+//     },
+//     "format": " {capacity}% {icon} ",
+//     "format-full": "{icon}",
+//     "format-plugged": " {capacity}% <span font='Font Awesome 5 Free'>\uf0e7</span> ",
+//     "format-alt": "{icon}",
+//     "tooltip-format": "{capacity}%, about {time} left",
+//     "format-icons": [" ", " ", " ", " "]
+//   },
+//   // "pulseaudio": {
+//   //   "format": "<span font='Font Awesome 5 Free'>{icon}</span>",
+//   //   "format-muted": "<span font='Font Awesome 5 Free'>\uf6a9</span>",
+//   //   "format-icons": {
+//   //     "headphone": "\uf025",
+//   //     "default": ["\uf028"]
+//   //     // "default": [
+//   //     //   "▁", // 0–16%
+//   //     //   "▂▁", // 17–33%
+//   //     //   "▃▂▁", // 34–50%
+//   //     //   "▄▃▂▁", // 51–66%
+//   //     //   "▅▄▃▂▁", // 67–83%
+//   //     //   "▆▅▄▃▂▁" // 84–100%
+//   //     // ]
+//   //     // "default": [
+//   //     //   "░░░░░░░░░░",
+//   //     //   "▓░░░░░░░░░",
+//   //     //   "▓▓░░░░░░░░",
+//   //     //   "▓▓▓░░░░░░░",
+//   //     //   "▓▓▓▓░░░░░░",
+//   //     //   "▓▓▓▓▓░░░░░",
+//   //     //   "▓▓▓▓▓▓░░░░",
+//   //     //   "▓▓▓▓▓▓▓░░░",
+//   //     //   "▓▓▓▓▓▓▓▓░░",
+//   //     //   "▓▓▓▓▓▓▓▓▓░",
+//   //     //   "▓▓▓▓▓▓▓▓▓▓"
+//   //     // ]
+//   //   },
+//   //   "tooltip-format": "{volume}% {desc}",
+//   //   "on-click": "pamixer -t"
+//   // },
+//   "wireplumber": {
+//     "max-volume": 200,
+//     "scroll-step": 5,
+//     "format": "{icon}",
+//     "format-bluetooth": "{icon}",
+//     "format-icons": [" ", " ", " "],
+//     "format-muted": " ",
+//     "on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+//     "on-click": "pamixer -t",
+//     "tooltip-format": "{volume}% | {desc}"
+//   },
+//   "bluetooth": {
+//     "format": "{icon}",
+//     "format-icons": ["", "󰤾", "󰥀", "󰥄", "󰥈"],
+
+//     "tooltip-format-off": "Bluetooth is off",
+//     "tooltip-format-on": "Bluetooth is on",
+
+//     "format-connected": "{icon} {num_connections}",
+//     "format-connected-battery": "{icon} {device_battery_percentage}%",
+
+//     "tooltip-format-connected": "{device_enumerate}",
+//     "tooltip-format-enumerate-connected": "{device_alias}\t{device_battery_percentage}%",
+
+//     "on-click": "blueman-manager"
+//   }
+// }

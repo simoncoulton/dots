@@ -1,0 +1,23 @@
+#!/bin/bash
+
+items="Screensaver\nLock\nLogout\nShutdown\nReboot"
+output=$(echo -e $items | rofi -dmenu -i -theme menuonly)
+
+if [[ "$output" == "Lock" ]]; then
+    sleep 0.5
+    lock-screen
+elif [[ "$output" == "Screensaver" ]]; then
+    sleep 0.5
+    ghostty --class=com.dotfiles.Screensaver -e screensaver
+elif [[ "$output" == "Logout" ]]; then
+    sleep 0.5
+    hyprctl dispatch exit
+elif [[ "$output" == "Reboot" ]]; then
+    sleep 0.5
+    systemctl reboot
+elif [[ "$output" == "Shutdown" ]]; then
+    sleep 0.5
+    systemctl poweroff
+else
+    echo "Select a command"
+fi

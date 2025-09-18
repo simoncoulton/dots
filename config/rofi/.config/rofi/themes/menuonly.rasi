@@ -1,0 +1,85 @@
+/* ________Variables________ */
+* {
+	/* ________Window________ */	
+    window-width: 500px;
+	window-height: 250px;
+	window-border: 1.75px;
+    window-border-color: #4A4A4C;
+	window-border-radius: 8px;
+    window-bg-color:  rgba(35, 38, 52, 0.98);
+	window-bg-color-alt: rgb(41, 44, 60, 0.8);
+
+	border-color: rgb(48, 52, 70);
+	text: rgb(198, 208, 245);
+	text-alt: rgb(181, 191, 226);
+	text-dark: rgb(65, 69, 89);
+	selected: rgba(48, 52, 70, 0.9);
+	border: rgba(255, 255, 255, 0.1);
+
+	font: "MesloLGL Nerd Font 14px";
+
+}
+
+// Main window
+window {
+	width: @window-width;
+    border: @window-border;
+    border-color: @border-color;
+    background-color: @window-bg-color;
+	border-radius: @window-border-radius;
+}
+
+mainbox {
+    background-color: transparent;
+	children: [inputbar, listview];
+}
+
+inputbar {
+	children: [entry];
+	background-color: transparent;
+	border-color: #ffffff;
+}
+
+// Prompt at top
+entry {
+	placeholder-color: rgba(255, 255, 255, 0.3);
+    padding: 14px 14px; 
+    text-color: @text;
+    border-color: @border-color;
+	border: 0 0 2px 0;
+    background-color: transparent;
+}
+
+// List of options
+listview {
+    padding: 6px;
+    lines: 7;
+	spacing: 4px;
+    background-color: transparent; 
+}
+
+element {
+    padding: 10px;
+	border-radius: 4px;
+	border: 0;
+    background-color: transparent; 
+	spacing: 10px;
+	children: [group];
+}
+
+group {
+	background-color: transparent;
+	orientation: horizontal;
+	spacing: 8px;
+	children: [element-text];
+}
+
+element-text {
+	vertical-align: 0.5;
+	text-color: @text;
+	background-color: transparent;
+}
+
+element selected {
+    background-color: @selected;
+}

@@ -1,0 +1,15 @@
+font-family = "MesloLGL Nerd Font"
+font-style = "Mono"
+font-size = 10
+
+background-opacity = 0.9
+background-blur = 20
+
+theme = catppuccin-frappe.conf
+
+window-padding-x = 4
+window-padding-y = 2
+
+adjust-underline-position = 2
+
+cursor-style = bar

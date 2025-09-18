@@ -1,0 +1,13 @@
+#!/bin/bash
+
+AUR_HELPER="yay"  # or paru
+
+# Count updates
+official=$(pacman -Qu | wc -l)
+aur=$($AUR_HELPER -Qua | wc -l)
+total=$((official + aur))
+
+if [ $total -gt 0 ]; then
+    echo "<span font='20px'>󰚰</span>"
+    echo "$official official + $aur AUR packages"
+fi

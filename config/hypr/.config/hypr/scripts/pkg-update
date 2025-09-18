@@ -1,0 +1,49 @@
+#!/bin/bash
+# ~/.config/waybar/scripts/run_pkg_updates.sh
+
+AUR_HELPER="yay"  # Change if you use paru or another AUR helper
+
+echo "Checking for package updates..."
+
+# Official repo updates
+echo "=== Official Repo Updates ==="
+official_updates=$(pacman -Qu)
+if [ -z "$official_updates" ]; then
+    echo "No official repo updates."
+else
+    echo "$official_updates"
+fi
+
+# AUR updates
+echo ""
+echo "=== AUR Updates ==="
+aur_updates=$($AUR_HELPER -Qua)
+if [ -z "$aur_updates" ]; then
+    echo "No AUR updates."
+else
+    echo "$aur_updates"
+fi
+
+# Count total updates
+total_updates=$(( $(echo "$official_updates" | grep -c .) + $(echo "$aur_updates" | grep -c .) ))
+echo ""
+echo "Total packages to update: $total_updates"
+
+if [ $total_updates -eq 0 ]; then
+    echo "System is up to date!"
+else
+    read -p "Do you want to update all packages? [y/N]: " ans
+    if [[ "$ans" =~ ^[Yy]$ ]]; then
+        echo ""
+        echo "Starting update..."
+        sudo pacman -Syu
+        if [ ! -z "$aur_updates" ]; then
+            $AUR_HELPER -Syu
+        fi
+        echo "Update complete!"
+    else
+        echo "Update cancelled."
+    fi
+fi
+
+rofi-close-blocker

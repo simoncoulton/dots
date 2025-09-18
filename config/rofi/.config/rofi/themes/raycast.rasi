@@ -1,0 +1,162 @@
+/* ________Variables________ */
+* {
+	/* ________Window________ */	
+    window-width: 600px;
+	window-height: 550px;
+	window-border: 1.75px;
+    window-border-color: #4A4A4C;
+	window-border-radius: 8px;
+    window-bg-color:  rgba(35, 38, 52, 0.98);
+	window-bg-color-alt: rgb(41, 44, 60, 0.8);
+
+	border-color: rgb(48, 52, 70);
+	text: rgb(198, 208, 245);
+	text-alt: rgb(181, 191, 226);
+	text-dark: rgb(65, 69, 89);
+	selected: rgba(48, 52, 70, 0.9);
+	border: rgba(255, 255, 255, 0.1);
+
+	font: "MesloLGL Nerd Font 14px";
+
+}
+
+// Main window
+window {
+	width: @window-width;
+    border: @window-border;
+    border-color: @border-color;
+    background-color: @window-bg-color;
+	border-radius: @window-border-radius;
+}
+
+mainbox {
+    background-color: transparent;
+	children: [inputbar, listview, footer];
+}
+
+spacer {
+	str: "";
+	expand: true;
+	background-color: transparent;
+}
+
+keys-info {
+	children: [
+		textbox-return-text,
+		textbox-return-icon
+	];
+
+	expand: false;
+	vertical-align: 0.5;
+	orientation: horizontal;
+	spacing: 4px;
+    background-color: transparent; 
+}
+
+textbox-return-text {
+	str: "Open Application";
+	expand: false;
+	text-color: @text-alt; 
+	vertical-align: 0.5;
+	padding: 0 4px;
+	border-radius: 4px;
+    background-color: transparent; 
+}
+
+textbox-return-icon {
+	str: "󰌑";
+	expand: false;
+	text-color: rgba(255, 255, 255, 0.6);
+	vertical-align: 0.5;
+	margin: 8px 0;
+	padding: 2px 12px 2px 8px;
+	border-radius: 4px;
+    background-color: @selected;
+}
+
+footer {
+	children: [textbox-1, spacer, keys-info];
+	expand:false;
+	orientation: horizontal;
+	padding: 5px 10px;
+	background-color: @window-bg-color-alt;
+
+    border-color: @border-color;
+	border: 1px 0 0 0;
+}
+
+textbox-1 {
+    expand: false;
+    str: "󰣇";
+	background-color: transparent;	
+	text-color: rgba(255, 255, 255, 0.2);
+	vertical-align: 0.5;
+	width: 40px;
+	font: "MesloLGL Nerd Font 20px";
+}
+
+inputbar {
+	children: [entry];
+	background-color: transparent;
+	border-color: #ffffff;
+}
+
+// Prompt at top
+entry {
+	placeholder-color: rgba(255, 255, 255, 0.3);
+    padding: 14px 14px; 
+    text-color: @text;
+    border-color: @border-color;
+	border: 0 0 2px 0;
+    background-color: transparent;
+}
+
+// List of options
+listview {
+    padding: 6px;
+    lines: 7;
+	spacing: 4px;
+    background-color: transparent; 
+}
+
+element {
+    padding: 10px;
+	border-radius: 4px;
+	border: 0;
+    background-color: transparent; 
+	spacing: 10px;
+	children: [group, textbox];
+}
+
+textbox {
+    expand: false;
+    str: "Application";
+	background-color: transparent;	
+	
+	text-color: @text-dark;
+	vertical-align: 0.5;
+	font: "MesloLGL Nerd Font 12px";
+}
+
+
+group {
+	background-color: transparent;
+	orientation: horizontal;
+	spacing: 8px;
+	children: [element-icon, element-text];
+}
+
+element-icon {
+    size: 24px;
+	background-color: transparent;
+}
+
+element-text {
+	vertical-align: 0.5;
+	text-color: @text;
+	background-color: transparent;
+}
+
+element selected {
+    background-color: @selected;
+}

@@ -1,0 +1,13 @@
+# macOS
+\.DS_Store
+
+# configs
+spicetify.ini
+.gitignore
+
+# common
+preinstall
+install
+uninstall
+postinstall
+postuninstall
