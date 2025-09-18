@@ -1,6 +1,6 @@
 export ZSH="${ZDOTDIR:-$HOME}/.zsh"
 
-local includes=("core" "aliases" "exports" "hooks" "plugins")
+local includes=("core" "aliases" "exports" "plugins" "hooks")
 
 for f in "${includes[@]}"; do
     local zsh_source="$ZSH/$f"

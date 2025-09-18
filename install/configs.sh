@@ -5,7 +5,7 @@ CURRENT_DIR=$(pwd)
 CONFIG_DIR=$SCRIPT_DIR/../config
 
 cd $CONFIG_DIR
-echo $(pwd)
+
 for dir in "$CONFIG_DIR"/*/; do
     if [ -d "$dir" ]; then
         dir_name=$(basename "$dir")
@@ -13,7 +13,7 @@ for dir in "$CONFIG_DIR"/*/; do
         stow -t ~/ $dir_name
         
     fi
-    # cd $CURRENT_DIR
+
 done
 cd $CURRENT_DIR
 

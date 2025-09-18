@@ -1,76 +1,86 @@
 #!/bin/bash
 
-# Install yay
-sudo pacman -S --needed git base-devel
-git clone https://aur.archlinux.org/yay-bin.git
-cd yay-bin
-makepkg -si
-rm -rf yay-bin
+# File paths for package lists
+PACKAGE_PATH="packages"
+COMMON_FILE="common"
+MACOS_FILE="macos"
+ARCH_FILE="arch"
 
-# Install required packages
+# Function to install packages with Homebrew on macOS
+install_with_brew() {
+  if ! command -v brew &>/dev/null; then
+    echo "Homebrew is not installed. Installing Homebrew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  fi
+  echo "Installing common packages with Homebrew..."
+  while IFS= read -r pkg; do
+    if [[ -n "$pkg" ]]; then
+      brew install "$pkg"
+    fi
+  done < "$PACKAGE_PATH/$COMMON_FILE"
+  
+  echo "Installing macOS-specific packages with Homebrew..."
+  while IFS= read -r pkg; do
+    if [[ "$pkg" =~ ^cask: ]]; then
+      # Package to install via yay
+      pkg_name="${pkg#cask:}"
+      brew install --cask "$pkg_name"
+    else
+        brew install "$pkg"
+    fi
+  done < "$PACKAGE_PATH/$MACOS_FILE"
+}
 
-sudo pacman -S --noconfirm \
-    systemctl-tui \
-    cliphist \
-    wl-clipboard \
-    wl-clip-persist \
-    hyprshot \
-    gvfs-smb \
-    zsh-syntax-highlighting \
-    zsh-autosuggestions \
-    ghostty \
-    zoxide \
-    nautilus \
-    sushi \
-    btop \
-    fastfetch \
-    docker \
-    docker-compose \
-    docker-buildx \
-    stow \
-    xdg-desktop-portal-gtk \
-    xdg-desktop-portal-hyprland \
-    lazydocker \
-    wiremix \
-    ttf-jetbrains-mono-nerd \
-    ttf-meslo-nerd \
-    waybar \
-    hyprpaper \
-    hypridle \
-    signal-desktop \
-    fd \
-    eza \
-    fzf \
-    ripgrep \
-    bat \
-    jq \
-    yq \
-    lazygit \
-    tldr \
-    less \
-    playerctl \
-    chromium \
-    mpv \
-    nvtop \
-    yazi \
-    mise \
-    libreoffice \
-    git-delta \
-    ncdu \
-    ncspot \
-    rofi
+# Function to install packages with yay or pacman on Arch Linux
+install_with_yay_pacman() {
+  if ! command -v yay &>/dev/null; then
+    sudo pacman -S --needed git base-devel
+    git clone https://aur.archlinux.org/yay-bin.git
+    cd yay-bin
+    makepkg -si
+    rm -rf yay-bin
+  fi
 
-yay -S --noconfirm --needed \
-    hyprpaper \
-    localsend \
-    1password-beta \
-    1password-cli \
-    man \
-    visual-studio-code-bin \
-    zen-browser-bin \
-    spotify \
-    dropbox \
-    nautilus-dropbox  \
-    nwg-look \
-    python-terminaltexteffects \
-    posting
+  echo "Installing common packages with yay or pacman..."
+  while IFS= read -r pkg; do
+    if [[ -n "$pkg" ]]; then
+      if [[ "$pkg" =~ ^yay: ]]; then
+        # Package to install via yay
+        pkg_name="${pkg#yay:}"
+        yay -S --noconfirm "$pkg_name"
+      else
+        sudo pacman -S --noconfirm "$pkg_name"
+      fi
+    fi
+  done < "$PACKAGE_PATH/$COMMON_FILE"
+
+  echo "Installing Arch-specific packages..."
+  while IFS= read -r pkg; do
+    if [[ -n "$pkg" ]]; then
+      if [[ "$pkg" =~ ^pacman: ]]; then
+        # Package to install via pacman
+        pkg_name="${pkg#pacman:}"
+        sudo pacman -S --noconfirm "$pkg_name"
+      elif [[ "$pkg" =~ ^yay: ]]; then
+        # Package to install via yay
+        pkg_name="${pkg#yay:}"
+        yay -S --noconfirm "$pkg_name"
+      else
+        # Default, install with yay
+        yay -S --noconfirm "$pkg"
+      fi
+    fi
+  done < "$PACKAGE_PATH/$ARCH_FILE"
+}
+
+# Detect OS and perform installation
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  echo "Detected macOS"
+  install_with_brew
+elif [[ -f /etc/arch-release ]]; then
+  echo "Detected Arch Linux"
+  install_with_yay_pacman
+else
+  echo "Unsupported OS. This script currently supports macOS and Arch Linux."
+  exit 1
+fi
