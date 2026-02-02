@@ -1,3 +1,12 @@
+vim.diagnostic.config({
+  virtual_text = true,       -- Show inline diagnostics
+  signs = true,              -- Show signs in the gutter
+  underline = true,          -- Underline the offending code
+  update_in_insert = false,  -- Don't update diagnostics while typing
+  severity_sort = true,      -- Sort by severity
+})
+
+
 return {
   "folke/trouble.nvim",
   opts = {},
