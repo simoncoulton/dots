@@ -1,6 +1,9 @@
-local lspconfig = require("lspconfig")
 local capabilities = require("config.lsps.capabilities")
 
-lspconfig.denols.setup({
-	capabilities = capabilities
+local capabilities = require("config.lsps.capabilities")
+
+vim.lsp.config("denols", {
+	capabilities = capabilities,
 })
+
+vim.lsp.enable({"denols"})
