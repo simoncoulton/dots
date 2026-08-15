@@ -1,0 +1,5 @@
+require("bindings/apps")
+require("bindings/actions")
+require("bindings/media")
+require("bindings/workspaces")
+require("bindings/hyprshot")

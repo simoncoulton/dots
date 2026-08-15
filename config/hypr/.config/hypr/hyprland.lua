@@ -1,0 +1,8 @@
+require("monitors")
+require("programs")
+require("autostart")
+require("envs")
+require("lookandfeel")
+require("input")
+require("bindings")
+require("workspaces")
