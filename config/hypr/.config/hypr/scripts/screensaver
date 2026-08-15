@@ -10,10 +10,9 @@ function exit_screensaver {
 trap exit_screensaver SIGINT SIGTERM SIGHUP SIGQUIT
 
 while true; do
-  effect=$(tte 2>&1 | grep -oP '{\K[^}]+' | tr ',' ' ' | tr ' ' '\n' | sed -n '/^beams$/,$p' | sort -u | shuf -n1)
   tte -i ~/.config/hypr/screensaver/screensaver.txt \
     --frame-rate 240 --canvas-width 0 --canvas-height $(($(tput lines) - 2)) --anchor-canvas c --anchor-text c \
-    "$effect" &
+    --random-effect &
 
   while pgrep -x tte >/dev/null; do
     if read -n 1 -t 3; then
