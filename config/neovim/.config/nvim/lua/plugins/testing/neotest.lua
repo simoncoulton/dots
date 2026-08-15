@@ -7,6 +7,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     "thenbe/neotest-playwright",
     "nvim-neotest/neotest-jest",
+    "marilari88/neotest-vitest"
   },
   config = function()
     local neotest = require("neotest")
@@ -26,6 +27,7 @@ return {
             return vim.fn.getcwd()
           end,
         }),
+        ["neotest-vitest"] = {}
       },
       status = { virtual_text = true },
       output = { open_on_run = true },

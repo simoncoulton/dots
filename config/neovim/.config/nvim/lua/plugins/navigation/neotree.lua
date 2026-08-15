@@ -26,18 +26,24 @@ return {
 			},
 		},
 		event_handlers = {
-
 			{
 				event = "file_open_requested",
 				handler = function()
 					require("neo-tree.command").execute({ action = "close" })
 				end,
 			},
+			{
+				event = "neo_tree_window_opened",
+				handler = function()
+					-- Custom cursor line color (teal/cyan works well with catppuccin-frappe)
+					vim.api.nvim_set_hl(0, "NeoTreeCursorLine", { bg = "#303347", bold = true })
+				end,
+			},
 		},
 	},
 	keys = {
 		{
-			"<leader>r",
+			"<leader>[",
 			function()
 				require("neo-tree.command").execute({
 					toggle = true,

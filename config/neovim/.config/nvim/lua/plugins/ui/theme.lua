@@ -22,6 +22,7 @@ return {
 				notify = true,
 				which_key = true,
 				fidget = true,
+				native_term = true,
         navic = {
           enabled = true,
           custom_bg = "lualine"

@@ -8,10 +8,14 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end
 
 		local builtin = require("telescope.builtin")
+
+		-- Normal mode mappings
 		map("gd", builtin.lsp_definitions, "Goto Definition")
 		map("gr", builtin.lsp_references, "Goto References")
 		map("gi", builtin.lsp_implementations, "Goto Implementation")
-		map("go", builtin.lsp_type_definitions, "Type Definition")
+		map("td", builtin.lsp_type_definitions, "Type Definition")
+
+		-- Leader mappings
 		map("<leader>p", builtin.lsp_document_symbols, "Document Symbols")
 		map("<leader>P", builtin.lsp_workspace_symbols, "Workspace Symbols")
 		map("<leader>Ps", builtin.lsp_dynamic_workspace_symbols, "Workspace Symbols")
@@ -22,7 +26,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("gD", vim.lsp.buf.declaration, "Goto Declaration")
 
 		local wk = require("which-key")
-    local buf = vim.lsp.buf
+		local buf = vim.lsp.buf
+
 		wk.add({
 			{ "<leader>la", buf.code_action, desc = "Code Action" },
 			{ "<leader>lA", buf.range_code_action, desc = "Range Code Actions" },
@@ -39,6 +44,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
 					print(vim.inspect(buf.list_workspace_folders()))
 				end,
 				desc = "Workspace List Folders",
+			},
+			{
+				"<leader>th",
+				function()
+					vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+				end,
+				desc = "[T]oggle Inlay [H]ints",
 			},
 		})
 	end,

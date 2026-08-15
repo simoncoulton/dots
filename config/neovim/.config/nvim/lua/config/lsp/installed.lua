@@ -1,6 +1,6 @@
 return {
   "lua_ls",
   "ts_ls",
-  "denols",
+  -- "denols",
   "terraformls"
 }

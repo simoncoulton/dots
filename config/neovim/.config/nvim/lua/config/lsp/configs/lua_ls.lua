@@ -1,4 +1,4 @@
-local capabilities = require("config.lsps.capabilities")
+local capabilities = require("config.lsp.capabilities")
 
 vim.lsp.config("lua_ls", {
 	capabilities = capabilities,

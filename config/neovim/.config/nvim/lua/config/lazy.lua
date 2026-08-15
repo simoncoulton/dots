@@ -16,6 +16,12 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   spec = {
+    { import = "plugins.ui" },
+    { import = "plugins.navigation" },
+    { import = "plugins.editor" },
+    { import = "plugins.git" },
+    { import = "plugins.lsp" },
+    { import = "plugins.testing" },
     { import = "plugins" },
   },
   install = { colorscheme = { "catppuccin-frappe" } },
