@@ -5,7 +5,7 @@ hl.config({
 		gaps_in = 5,
 		gaps_out = 10,
 
-		border_size = 2,
+		border_size = 1,
 
 		resize_on_border = false,
 		allow_tearing = false,
@@ -22,7 +22,7 @@ hl.config({
 
 		shadow = {
 			enabled = true,
-			range = 4,
+			range = 0,
 			render_power = 3,
 			color = "rgba(1a1a1aee)",
 		},
