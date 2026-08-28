@@ -114,7 +114,7 @@ alt-shift-8 = 'move-node-to-workspace S'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 alt-shift-semicolon = 'mode service'
-# alt-shift-cmd-ctrl = 'mode service'
+# alt-shift-cmd = 'mode service'
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -165,4 +165,13 @@ run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.ScreenSharing'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'ru.starmel.OpenSuperWhisper'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.Outlook'
+if.window-title-regex-substring = 'Accounts'
 run = 'layout floating'
