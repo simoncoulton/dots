@@ -22,7 +22,6 @@ require("lazy").setup({
     { import = "plugins.git" },
     { import = "plugins.lsp" },
     { import = "plugins.testing" },
-    { import = "plugins" },
   },
   install = { colorscheme = { "catppuccin-frappe" } },
   checker = { enabled = true },
