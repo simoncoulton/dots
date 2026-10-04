@@ -44,12 +44,13 @@ install_with_yay_pacman() {
   echo "Installing common packages with yay or pacman..."
   while IFS= read -r pkg; do
     if [[ -n "$pkg" ]]; then
+      echo "$pkg"
       if [[ "$pkg" =~ ^yay: ]]; then
         # Package to install via yay
         pkg_name="${pkg#yay:}"
         yay -S --noconfirm "$pkg_name"
       else
-        sudo pacman -S --noconfirm "$pkg_name"
+        sudo pacman -S --noconfirm "$pkg"
       fi
     fi
   done < "$PACKAGE_PATH/$COMMON_FILE"
