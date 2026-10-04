@@ -10,7 +10,7 @@ local config = os.getenv("HOME") .. "/.config/hypr/hyprland.lua"
 local passwordManager = "1password"
 local audioControls = "wiremix"
 local audioVisualiser = "cava"
-local music = "ncspot"
+local music = "cliamp"
 local colorPicker = "hyprpicker"
 
 return {
