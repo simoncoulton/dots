@@ -195,7 +195,7 @@ Disk usage analyzer with an ncurses interface
 
 TUI for managing wifi 
 
-### ncspot
+### cliamp
 
 TUI for Spotify
 
