@@ -6,6 +6,8 @@ eq_preset = "Custom"
 eq = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 repeat = "All"
 
+speed = 1.00
+shuffle = true
 [spotify]
 client_id = "d420a117a32841c2b3474932e49fb54b"
 bitrate   = 320
