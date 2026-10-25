@@ -1,5 +1,6 @@
+local keys = require("keys")
 local programs = require("programs")
 
 -- Configure what these relate to in programs.lua
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(programs.ipc .. " brightness-up"), { description = "Brightness Up" })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(programs.ipc .. " brightness-down"), { description = "Brightness Down" })
+keys.exec("XF86MonBrightnessUp", programs.ipc .. " brightness-up", "Brightness Up")
+keys.exec("XF86MonBrightnessDown", programs.ipc .. " brightness-down", "Brightness Down")

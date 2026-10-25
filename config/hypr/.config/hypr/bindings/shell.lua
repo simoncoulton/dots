@@ -1,6 +1,8 @@
-local mods = require("modifiers")
+local keys = require("keys")
 local programs = require("programs")
 
 -- Noctalia Panels
-hl.bind(mods.super .. "+" .. mods.shift .. "+comma", hl.dsp.exec_cmd(programs.ipc .. " " .. "panel-toggle control-center"), { description = "Noctalia Control Center"})
-hl.bind(mods.super .. "+comma", hl.dsp.exec_cmd(programs.ipc .. " " .. "settings-toggle"), { description = "Noctalia Settings"})
+keys.exec_all({
+	{ "super+shift+comma", programs.ipc .. " panel-toggle control-center", "Noctalia Control Center" },
+	{ "super+comma", programs.ipc .. " settings-toggle", "Noctalia Settings" },
+})

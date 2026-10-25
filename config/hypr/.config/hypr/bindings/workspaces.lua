@@ -1,33 +1,35 @@
-local mods = require("modifiers")
+local keys = require("keys")
 
-hl.bind(mods.alt .. "+Tab", hl.dsp.window.cycle_next(), { description = "Alt Tab" })
-hl.bind(mods.alt .. "+" .. mods.shift .. "+Tab", hl.dsp.window.cycle_next({ next = false }), { description = "Alt Tab (Reverse)" })
+keys.bind_all({
+	{ "alt+Tab", hl.dsp.window.cycle_next(), "Alt Tab" },
+	{ "alt+shift+Tab", hl.dsp.window.cycle_next({ next = false }), "Alt Tab (Reverse)" },
 
-hl.bind(mods.super .. "+Q", hl.dsp.window.close(), { description = "Close Active" })
-hl.bind(mods.super .. "+" .. mods.shift .. "+V", hl.dsp.layout("togglesplit"), { description = "Toggle Split" })
-hl.bind(mods.super .. "+" .. mods.alt .. "+f", hl.dsp.window.float(), { description = "Toggle Floating" })
+	{ "super+Q", hl.dsp.window.close(), "Close Active" },
+	{ "super+shift+V", hl.dsp.layout("togglesplit"), "Toggle Split" },
+	{ "super+alt+f", hl.dsp.window.float(), "Toggle Floating" },
 
--- Move focus and window with mod+vim keys
-hl.bind(mods.super .. "+h", hl.dsp.focus({ direction = "l" }), { description = "Move Focus Left" })
-hl.bind(mods.super .. "+l", hl.dsp.focus({ direction = "r" }), { description = "Move Focus Right" })
-hl.bind(mods.super .. "+k", hl.dsp.focus({ direction = "u" }), { description = "Move Focus Up" })
-hl.bind(mods.super .. "+j", hl.dsp.focus({ direction = "d" }), { description = "Move Focus Down" })
-hl.bind(mods.super .. "+" .. mods.shift .. "+h", hl.dsp.window.move({ direction = "l" }), { description = "Move Window Left" })
-hl.bind(mods.super .. "+" .. mods.shift .. "+j", hl.dsp.window.move({ direction = "d" }), { description = "Move Window Down" })
-hl.bind(mods.super .. "+" .. mods.shift .. "+k", hl.dsp.window.move({ direction = "u" }), { description = "Move Window Up" })
-hl.bind(mods.super .. "+" .. mods.shift .. "+l", hl.dsp.window.move({ direction = "r" }), { description = "Move Window Right" })
+	-- Move focus and window with mod+vim keys
+	{ "super+h", hl.dsp.focus({ direction = "l" }), "Move Focus Left" },
+	{ "super+l", hl.dsp.focus({ direction = "r" }), "Move Focus Right" },
+	{ "super+k", hl.dsp.focus({ direction = "u" }), "Move Focus Up" },
+	{ "super+j", hl.dsp.focus({ direction = "d" }), "Move Focus Down" },
+	{ "super+shift+h", hl.dsp.window.move({ direction = "l" }), "Move Window Left" },
+	{ "super+shift+j", hl.dsp.window.move({ direction = "d" }), "Move Window Down" },
+	{ "super+shift+k", hl.dsp.window.move({ direction = "u" }), "Move Window Up" },
+	{ "super+shift+l", hl.dsp.window.move({ direction = "r" }), "Move Window Right" },
 
--- Resize active window
-hl.bind(mods.super .. "+minus", hl.dsp.window.resize({ x = -100, y = 0, relative = true }), { description = "Resize Window Smaller" })
-hl.bind(mods.super .. "+equal", hl.dsp.window.resize({ x = 100, y = 0, relative = true }), { description = "Resize Window Larger" })
-hl.bind(mods.super .. "+" .. mods.shift .. "+minus", hl.dsp.window.resize({ x = 0, y = -100, relative = true }), { description = "Resize Window Smaller (Vertical)" })
-hl.bind(mods.super .. "+" .. mods.shift .. "+equal", hl.dsp.window.resize({ x = 0, y = 100, relative = true }), { description = "Resize Window Larger (Vertical)" })
+	-- Resize active window
+	{ "super+minus", hl.dsp.window.resize({ x = -100, y = 0, relative = true }), "Resize Window Smaller" },
+	{ "super+equal", hl.dsp.window.resize({ x = 100, y = 0, relative = true }), "Resize Window Larger" },
+	{ "super+shift+minus", hl.dsp.window.resize({ x = 0, y = -100, relative = true }), "Resize Window Smaller (Vertical)" },
+	{ "super+shift+equal", hl.dsp.window.resize({ x = 0, y = 100, relative = true }), "Resize Window Larger (Vertical)" },
+
+	{ "super+mouse:272", hl.dsp.window.drag(), "Move window", { mouse = true } },
+	{ "super+mouse:273", hl.dsp.window.resize(), "Resize window", { mouse = true } },
+})
 
 for i = 1, 10 do
-  local key = i % 10 -- 10 maps to key 0
-  hl.bind(mods.super .. "+" .. key, hl.dsp.focus({ workspace = i }), { description = "Switch to Workspace " .. key })
-  hl.bind(mods.super .. "+" .. mods.shift .. "+" .. key, hl.dsp.window.move({ workspace = i }), { description = "Move Window to Workspace " .. key })
+	local key = i % 10 -- 10 maps to key 0
+	keys.bind("super+" .. key, hl.dsp.focus({ workspace = i }), "Switch to Workspace " .. key)
+	keys.bind("super+shift+" .. key, hl.dsp.window.move({ workspace = i }), "Move Window to Workspace " .. key)
 end
-
-hl.bind(mods.super .. "+mouse:272", hl.dsp.window.drag(), { mouse = true, description = "Move window" })
-hl.bind(mods.super .. "+mouse:273", hl.dsp.window.resize(), { mouse = true, description = "Resize window" })
