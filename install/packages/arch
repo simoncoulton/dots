@@ -23,6 +23,7 @@ xdg-desktop-portal-hyprland
 polkit
 hyprpolkitagent
 pacman-contrib
+unzip
 yay:1password
 yay:1password-cli
 yay:dropbox
