@@ -1,204 +1,158 @@
-### stow
-
-Manage installation of multiple softwares in the same directory tree
-
-### xdg-desktop-portal-gtk
-
-A backend implementation for xdg-desktop-portal using GTK
-
-### xdg-desktop-portal-hyprland
-
-xdg-desktop-portal backend for hyprland
-
-### ttf-meslo-nerd
-
-Meslo LG Nerd Font
-
-### waybar
-
-Highly customizable Wayland bar for Sway and Wlroots based compositors
-
-### nautilus
-
-Default file manager for GNOME
-
-### sushi
-
-A quick previewer for Nautilus 
-
-### hyprpaper
-
-hyprland's wallpaper manager
-
-### hypridle
-
-hyprland’s idle daemon
-
-### localsend
-
-An open source cross-platform alternative to AirDrop
-
-### wiremix
-
-A simple TUI audio mixer for PipeWire
-
-### 1password-beta
-
-
-### 1password-cli
-
-
-### docker
-
-Pack, ship and run any application as a lightweight container
-
-### docker-compose
-
-Fast, isolated development environments using Docker
-
-### docker-buildx
-
-Docker CLI plugin for extended build capabilities with BuildKit
-
-### lazydocker
-
-A simple terminal UI for docker and docker-compose, written in Go with the gocui library.
-
-### libreoffice
-
-Free and open office
-
-### signal-desktop
-
-Signal Private Messenger for Linux
-
-
-### ghostty
-
-Fast, native, feature-rich terminal emulator pushing modern features
-
-### btop
-
-A monitor of system resources, bpytop ported to C++
-
-### fastfetch
-
-A feature-rich and performance oriented neofetch like system information tool
-
-### fd
-
-Simple, fast and user-friendly alternative to find
-
-
-### eza
-
-A modern replacement for ls
-
-
-### fzf
-
-Command-line fuzzy finder
-
-
-### ripgrep
-
-A search tool that combines the usability of ag with the raw speed of grep
-
-
-### bat
-
-Cat clone with syntax highlighting and git integration
-
-
-### jq
-
-Command-line JSON processor
-
-### yq
-
-Command-line JSON processor
-
-### man
-### tldr
-
-Command line client for tldr, a collection of simplified man pages.
-
-### less
-
-A terminal based program for viewing text files
-
-
-### visual-studio-code-bin
-
-Visual Studio Code (vscode): Editor for building and debugging modern web and cloud applications (official binary version)
-
-### lazygit
-
-Simple terminal UI for git commands
-
-### chromium
-
-A web browser built for speed, simplicity, and security
-
-### zen-browser-bin
-
-Performance oriented Firefox-based web browser
-
-### spotify
-
-### playerctl
-
-mpris media player controller and lib for spotify, vlc, audacious, bmp, xmms2, and others.
-
-### mpv
-
-a free, open source, and cross-platform media player
-
-### yazi
-
-Blazing fast terminal file manager written in Rust, based on async I/O
-
-### mise
-
-The front-end to your dev env
-
-### dropbox
-
-A free service that lets you bring your photos, docs, and videos anywhere and share them easily.
-
-### nautilus-dropbox 
-
-Dropbox Nautilus Extension
-
-
-### nwg-look
-
-GTK settings editor adapted to work on wlroots-based compositors
-
-### nvtop
-
-GPUs process monitoring for AMD, Intel and NVIDIA
-
-### systemctl-tui
-
-A fast, simple TUI for interacting with systemd services and their logs
-
-### git-delta
-
-Syntax-highlighting pager for git and diff output
-
-### ncdu
-
-Disk usage analyzer with an ncurses interface
-
-### impala
-
-TUI for managing wifi 
-
-### cliamp
-
-TUI for Spotify
-
-### Posting
-
-A powerful HTTP client that lives in your terminal
+# Packages
+
+Packages are installed by `install/packages.sh` from the lists in `install/packages/`:
+
+| List     | Installed on   | Installed with                                                 |
+| -------- | -------------- | -------------------------------------------------------------- |
+| `common` | Arch and macOS | `pacman` on Arch, `brew` on macOS                              |
+| `arch`   | Arch only      | `yay` by default; `yay:` and `pacman:` prefixes force one      |
+| `macos`  | macOS only     | `brew`; the `cask:` prefix installs with `brew install --cask` |
+
+## common
+
+### Shell
+
+| Package                   | Purpose                                          |
+| ------------------------- | ------------------------------------------------ |
+| `zsh`                     | Login shell                                      |
+| `zsh-autosuggestions`     | Fish-like command suggestions from history       |
+| `zsh-completions`         | Extra completion definitions for zsh             |
+| `zsh-syntax-highlighting` | Syntax highlighting as you type commands         |
+| `starship`                | Cross-shell prompt                               |
+| `zoxide`                  | Smarter `cd` that remembers frequent directories |
+| `fzf`                     | Command-line fuzzy finder                        |
+
+### CLI replacements and utilities
+
+| Package   | Purpose                                                  |
+| --------- | -------------------------------------------------------- |
+| `bat`     | `cat` clone with syntax highlighting and git integration |
+| `eza`     | Modern replacement for `ls`                              |
+| `fd`      | Simple, fast alternative to `find`                       |
+| `ripgrep` | Fast recursive search, alternative to `grep`             |
+| `less`    | Terminal pager                                           |
+| `jq`      | Command-line JSON processor                              |
+| `yq`      | Command-line YAML/JSON/XML processor                     |
+| `tldr`    | Simplified, example-driven man pages                     |
+| `stow`    | Symlinks the dotfiles in `config/` into place            |
+
+### System info and disk usage
+
+| Package     | Purpose                                       |
+| ----------- | --------------------------------------------- |
+| `btop`      | System resource monitor                       |
+| `fastfetch` | System information summary (neofetch-like)    |
+| `ncdu`      | Interactive disk usage analyser               |
+| `duf`       | Disk usage/free overview, alternative to `df` |
+
+### Development
+
+| Package   | Purpose                                         |
+| --------- | ----------------------------------------------- |
+| `nvim`    | Neovim, the main editor                         |
+| `mise`    | Dev tool/runtime version manager and env loader |
+| `lazygit` | Terminal UI for git                             |
+| `posting` | HTTP/API client that runs in the terminal       |
+
+### Files and media
+
+| Package | Purpose                              |
+| ------- | ------------------------------------ |
+| `yazi`  | Fast terminal file manager           |
+| `mpv`   | Media player                         |
+
+## arch
+
+### Desktop shell and Wayland
+
+| Package                       | Purpose                                                    |
+| ----------------------------- | ---------------------------------------------------------- |
+| `noctalia`                    | Wayland desktop shell (bar, launcher, notifications, etc.) |
+| `hyprpicker`                  | Colour picker for Hyprland/wlroots                         |
+| `hyprpolkitagent`             | Polkit authentication agent for Hyprland                   |
+| `polkit`                      | Privilege authorisation framework                          |
+| `xdg-desktop-portal-hyprland` | Desktop portal backend for Hyprland (screen sharing etc.)  |
+| `xdg-desktop-portal-gtk`      | GTK desktop portal backend (file pickers etc.)             |
+| `wl-clipboard`                | `wl-copy`/`wl-paste` clipboard utilities                   |
+| `wl-clip-persist`             | Keeps clipboard contents after the source app closes       |
+| `upower`                      | Power/battery information service                          |
+| `nwg-look`                    | GTK theme and settings editor for wlroots compositors      |
+
+### Fonts
+
+| Package                   | Purpose                  |
+| ------------------------- | ------------------------ |
+| `ttf-jetbrains-mono-nerd` | JetBrains Mono Nerd Font |
+| `ttf-meslo-nerd`          | Meslo LG Nerd Font       |
+
+### Audio and media
+
+| Package     | Purpose                                            |
+| ----------- | -------------------------------------------------- |
+| `wiremix`   | TUI audio mixer for PipeWire                       |
+| `playerctl` | MPRIS media player control (media keys)            |
+| `mpv`       | Media player                                       |
+| `spotify`   | Spotify client (AUR)                               |
+| `cliamp`    | Retro, Winamp-inspired terminal music player (AUR) |
+
+### Docker
+
+| Package          | Purpose                                   |
+| ---------------- | ----------------------------------------- |
+| `docker`         | Container runtime                         |
+| `docker-buildx`  | Docker CLI plugin for BuildKit builds     |
+| `docker-compose` | Multi-container definitions for Docker    |
+| `lazydocker`     | Terminal UI for Docker and Docker Compose |
+
+### Files, storage and devices
+
+| Package      | Purpose                                                 |
+| ------------ | ------------------------------------------------------- |
+| `strata-bin` | Keyboard-first GUI file manager (AUR)                   |
+| `gvfs-smb`   | GIO virtual filesystem backend for SMB/Windows shares   |
+| `gvfs-afc`   | GIO virtual filesystem backend for Apple mobile devices |
+| `usbmuxd`    | USB multiplexing daemon for iPhone/iPad connections     |
+| `dropbox`    | Dropbox sync client (AUR)                               |
+| `localsend`  | Cross-platform AirDrop alternative (AUR)                |
+| `unzip`      | Extracts zip archives                                   |
+
+### Applications
+
+| Package                  | Purpose                                   |
+| ------------------------ | ----------------------------------------- |
+| `ghostty`                | Terminal emulator                         |
+| `zen-browser-bin`        | Firefox-based browser (AUR)               |
+| `chromium`               | Chromium web browser                      |
+| `visual-studio-code-bin` | Visual Studio Code, official binary (AUR) |
+| `libreoffice`            | Office suite                              |
+| `signal-desktop`         | Signal messenger                          |
+| `1password`              | 1Password desktop app (AUR)               |
+| `1password-cli`          | 1Password CLI, `op` (AUR)                 |
+
+### Development and AI tooling
+
+| Package    | Purpose                                               |
+| ---------- | ----------------------------------------------------- |
+| `herdr`    | Terminal workspace manager for AI coding agents (AUR) |
+| `hunk-bin` | Review-first terminal diff viewer (AUR)               |
+
+### System utilities
+
+| Package                      | Purpose                                                 |
+| ---------------------------- | ------------------------------------------------------- |
+| `systemctl-tui`              | TUI for systemd services and their logs                 |
+| `pacman-contrib`             | Extra pacman scripts (`paccache`, `checkupdates`, etc.) |
+| `man`                        | Man page reader (AUR)                                   |
+| `speedtest-cli`              | Internet bandwidth test via speedtest.net (AUR)         |
+| `python-terminaltexteffects` | Terminal text visual effects, `tte` (AUR)               |
+
+## macos
+
+| Package                         | Purpose                                  |
+| ------------------------------- | ---------------------------------------- |
+| `font-meslo-lg-nerd-font`       | Meslo LG Nerd Font                       |
+| `font-jetbrains-mono-nerd-font` | JetBrains Mono Nerd Font                 |
+| `nikitabobko/tap/aerospace`     | i3-like tiling window manager (cask)     |
+| `bjarneo/cliamp/cliamp`         | Retro terminal music player (from tap)   |
+| `herdr`                         | Terminal workspace manager for AI agents |
+| `hunk`                          | Review-first terminal diff viewer        |

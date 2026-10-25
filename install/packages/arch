@@ -11,7 +11,6 @@ gvfs-afc
 usbmuxd
 lazydocker
 libreoffice
-mpv
 playerctl
 signal-desktop
 systemctl-tui
