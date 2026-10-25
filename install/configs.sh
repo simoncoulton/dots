@@ -1,20 +1,26 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-CURRENT_DIR=$(pwd)
-CONFIG_DIR=$SCRIPT_DIR/../config
+CONFIG_DIR="$SCRIPT_DIR/../config"
 
-cd $CONFIG_DIR
+cd "$CONFIG_DIR" || exit 1
 
-for dir in "$CONFIG_DIR"/*/; do
-    if [ -d "$dir" ]; then
-        dir_name=$(basename "$dir")
-        echo "Stow'ing $dir_name..."
-        stow -t ~/ $dir_name
-        
-    fi
+if [ -n "$1" ]; then
+    configs=("$1")
+else
+    configs=()
+    for dir in "$CONFIG_DIR"/*/; do
+        [ -d "$dir" ] || continue
+        configs+=("$(basename "$dir")")
+    done
+fi
 
+for config in "${configs[@]}"; do
+    echo "Stow'ing $config..."
+    stow -t ~/ "$config" || exit 1
 done
-cd $CURRENT_DIR
 
-bat cache --build
+if command -v bat >/dev/null 2>&1; then
+    echo "Building bat cache..."
+    bat cache --build
+fi

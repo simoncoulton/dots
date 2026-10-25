@@ -10,6 +10,10 @@ hl.config({
 
 		sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
 		natural_scroll = true,
+    touchpad = {
+      natural_scroll = true,
+      tap_button_map = "lmr"
+    }
 	},
 })
 

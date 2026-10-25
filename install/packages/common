@@ -1,16 +1,15 @@
 bat
 btop
-direnv
 eza
 fastfetch
 fd
 fzf
-git-delta
 jq
 lazygit
 less
 mise
 ncdu
+duf
 mpv
 nvim
 posting
