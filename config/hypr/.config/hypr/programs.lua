@@ -34,9 +34,9 @@ return {
 	audioVisualiser = audioVisualiser,
 	music = music,
 	colorPicker = colorPicker,
-  ipc = ipc,
-  ide = ide,
-  diskAnalyser = diskAnalyser,
+	ipc = ipc,
+	ide = ide,
+	diskAnalyser = diskAnalyser,
 
 	openEditor = terminal .. " --class=com.dotfiles." .. editor .. " -e " .. editor,
 	openTerminal = terminal,
@@ -46,13 +46,13 @@ return {
 	openBrowserDev = browserDev,
 	openMenu = ipc .. " panel-toggle " .. menu,
 	openActivityMonitor = terminal .. " " .. termClass .. activityMonitor .. " -e " .. activityMonitor,
-  openSystemCtl = terminal .. " " .. termClass .. systemctl .. " -e " .. systemctl,
+	openSystemCtl = terminal .. " " .. termClass .. systemctl .. " -e " .. systemctl,
 	openConfig = terminal .. " -e " .. editor .. " " .. config,
 	openPasswordManager = passwordManager,
 	openAudioControls = terminal .. " " .. termClass .. audioControls .. " -e " .. audioControls,
 	openAudioVisualiser = terminal .. " " .. termClass .. audioVisualiser .. " -e " .. audioVisualiser,
 	openMusic = terminal .. " " .. termClass .. music .. " -e " .. music,
 	openColorPicker = ipc .. " panel-toggle " .. colorPicker,
-  openIDE = ide,
-  openDiskAnalyser = terminal .. " " .. termClass .. diskAnalyser .. " -e " .. diskAnalyser .. " i"
+	openIDE = ide,
+	openDiskAnalyser = terminal .. " " .. termClass .. diskAnalyser .. " -e " .. diskAnalyser .. " i"
 }
