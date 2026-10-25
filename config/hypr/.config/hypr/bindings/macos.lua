@@ -1,26 +1,29 @@
 local keys = require("keys")
 
 -- macOS-style shortcuts (Super in place of Cmd), forwarded as the Linux equivalent.
--- Copy/paste use Insert variants so they also work in terminals.
+-- Copy/paste use Insert variants so they also work in terminals. A 4th column
+-- overrides the target in terminals (false = do nothing) so Super+Z doesn't suspend the shell.
 -- Deliberately skipped because Super+<key> is already taken:
---   F (find), T (new tab), B (bold), K (link), L (address bar), 1-9 (tabs), Shift+T (reopen tab)
+--   B (bold), K (link), L (address bar), 1-9 (tabs), Shift+T (reopen tab)
 keys.send_all({
 	-- Editing
 	{ "super+C", "ctrl+Insert", "Copy" },
 	{ "super+V", "shift+Insert", "Paste" },
 	{ "super+X", "ctrl+X", "Cut" },
-	{ "super+Z", "ctrl+Z", "Undo" },
-	{ "super+shift+Z", "ctrl+shift+Z", "Redo" },
-	{ "super+A", "ctrl+A", "Select All" },
+	{ "super+Z", "ctrl+Z", "Undo", false },
+	{ "super+shift+Z", "ctrl+shift+Z", "Redo", false },
+	{ "super+A", "ctrl+A", "Select All", "ctrl+shift+A" },
 
 	-- Documents
-	{ "super+S", "ctrl+S", "Save" },
+	-- Delayed so the physical key is up first: sent immediately, VSCode (native Wayland) auto-repeats "s"
+	{ "super+S", "ctrl+S", "Save", nil, { delay = 100 } },
 	{ "super+N", "ctrl+N", "New" },
 	{ "super+O", "ctrl+O", "Open" },
 	{ "super+W", "ctrl+W", "Close Tab" },
 	{ "super+R", "ctrl+R", "Reload" },
-	{ "super+I", "ctrl+I", "Italic" },
-	{ "super+U", "ctrl+U", "Underline" },
+	{ "super+F", "ctrl+F", "Find" },
+	{ "super+shift+F", "ctrl+shift+F", "Find All" },
+	{ "super+T", "ctrl+T", "New Tab", false },
 
 	-- Tabs / history
 	{ "super+bracketleft", "alt+Left", "Back" },

@@ -7,15 +7,12 @@ keys.exec_all({
 	{ "super+B", programs.openBrowser, "Browser" },
 	{ "super+shift+B", programs.openBrowserDev, "Browser (Dev)" },
 
-	{ "super+T", programs.openActivityMonitor, "Activity Monitor" },
-	{ "super+shift+T", programs.openSystemCtl, "System Control" },
-
 	{ "super+M", programs.openMusic, "Music Player" },
 	{ "super+shift+M", programs.openAudioVisualiser, "Audio Visualiser" },
 	{ "super+alt+M", programs.openAudioControls, "Audio Controls" },
 
-	{ "super+F", programs.openFileManagerTui, "File Manager (TUI)" },
-	{ "super+shift+F", programs.openFileManagerGui, "File Manager (GUI)" },
+	{ "super+ctrl+F", programs.openFileManagerTui, "File Manager (TUI)" },
+	{ "super+shift+Return", programs.openFileManagerGui, "File Manager (GUI)" },
 
 	{ "super+Space", programs.openMenu, "Menu" },
 	{ "super+shift+C", programs.openConfig, "Hyprland Config" },

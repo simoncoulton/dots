@@ -6,8 +6,6 @@ local browser = "zen-browser"
 local browserDev = "chromium"
 local ipc = "noctalia msg"
 local menu = "launcher"
-local activityMonitor = "btop"
-local systemctl = "systemctl-tui"
 local config = os.getenv("HOME") .. "/.config/hypr/hyprland.lua"
 local passwordManager = "1password"
 local audioControls = "wiremix"
@@ -27,7 +25,6 @@ return {
 	browser = browser,
 	browserDev = browserDev,
 	menu = menu,
-	activityMonitor = activityMonitor,
 	config = config,
 	passwordManager = passwordManager,
 	audioControls = audioControls,
@@ -45,8 +42,6 @@ return {
 	openBrowser = browser,
 	openBrowserDev = browserDev,
 	openMenu = ipc .. " panel-toggle " .. menu,
-	openActivityMonitor = terminal .. " " .. termClass .. activityMonitor .. " -e " .. activityMonitor,
-	openSystemCtl = terminal .. " " .. termClass .. systemctl .. " -e " .. systemctl,
 	openConfig = terminal .. " -e " .. editor .. " " .. config,
 	openPasswordManager = passwordManager,
 	openAudioControls = terminal .. " " .. termClass .. audioControls .. " -e " .. audioControls,

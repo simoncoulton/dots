@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=systemctl-tui
+Comment=Terminal UI for systemd services
+Exec=systemctl-tui
+Icon=utilities-terminal
+Terminal=true
+Categories=System;Utility;
