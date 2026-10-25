@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=dua
+Comment=modern replacement for du (Disk Usage)
+Exec=dua i
+Icon=utilities-terminal
+Terminal=true
+Categories=Development;Utility;

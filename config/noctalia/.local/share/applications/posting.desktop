@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Posting
+Comment=TUI for HTTP requests
+Exec=posting
+Icon=utilities-terminal
+Terminal=true
+Categories=Development;Utility;
+

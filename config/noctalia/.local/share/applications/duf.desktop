@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=duf
+Comment=Modern replacement for df (Disk Free)
+Exec=bash -c "duf; read -p 'Press Enter to exit...'"
+Icon=utilities-terminal
+Terminal=true
+Categories=Development;Utility;
