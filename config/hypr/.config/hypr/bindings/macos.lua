@@ -10,8 +10,8 @@ keys.send_all({
 	{ "super+C", "ctrl+Insert", "Copy" },
 	{ "super+V", "shift+Insert", "Paste" },
 	{ "super+X", "ctrl+X", "Cut" },
-	{ "super+Z", "ctrl+Z", "Undo", false },
-	{ "super+shift+Z", "ctrl+shift+Z", "Redo", false },
+	{ "super+Z", "ctrl+Z", "Undo", false, { delay = 100 } },
+	{ "super+shift+Z", "ctrl+shift+Z", "Redo", false, { delay = 100 } },
 	{ "super+A", "ctrl+A", "Select All", "ctrl+shift+A" },
 
 	-- Documents
