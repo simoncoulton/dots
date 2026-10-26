@@ -1,0 +1,16 @@
+# remotefiletui theme "solarized-dark". The file name is the theme's name.
+# Colours: #rrggbb, an ANSI name (red, darkgray, reset, ...) or 0-255.
+# Add `base: <built-in theme>` to fill in any colour you remove.
+# `bg` is the page colour; `transparent_background: true` in config.yml (or B
+# in the app) lets the terminal's own background show instead.
+bg: "#002b36"
+fg: "#839496"
+muted: "#586e75"
+accent: "#268bd2"
+border: "#586e75"
+selection_bg: "#073642"
+success: "#859900"
+info: "#2aa198"
+warning: "#b58900"
+error: "#dc322f"
+special: "#d33682"

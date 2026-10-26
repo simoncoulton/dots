@@ -1,0 +1,32 @@
+# remotefiletui configuration. Saved connections are in profiles.yml.
+# Everything here is optional; delete a line to get its default.
+
+# Colour theme: default, tokyo-night, catppuccin-frappe, catppuccin-macchiato,
+# catppuccin-mocha, catppuccin-latte, dracula, one-dark, gruvbox-dark, nord,
+# solarized-dark, rose-pine, monokai, github-dark, everforest, kanagawa, or the
+# name of a theme in the themes/ folder next to this file or under `themes:`
+# below. Everything except `default` uses 24-bit colour (256 colours are used
+# when the terminal doesn't advertise it). Press `t` in the app to preview and
+# pick a theme; the choice is saved here.
+theme: catppuccin-frappe
+
+# Paint the theme's own background (false), or leave the terminal's showing
+# through (true) so its transparency and blur are kept. Press `t` then `b` in
+# the app to toggle; the choice is saved here. `default` has no background of
+# its own.
+transparent_background: true
+
+# Fill empty connection details from a 1Password item named after the
+# connection (needs the `op` CLI). Ctrl-O toggles it in the app.
+# Only search this vault (default: every vault `op` can see).
+# onepassword_vault: Servers
+
+# Your own themes. Every colour is optional and inherits from `base` (one of
+# the built-in themes, default: `default`). Colours are #rrggbb, an ANSI name
+# (red, darkgray, reset, ...) or 0-255. The same can be done with one file per
+# theme in the themes/ folder (the file name is the theme's name).
+# themes:
+#   my-theme:
+#     base: dracula
+#     accent: "#ff8800"
+passwordmanager: onepassword
