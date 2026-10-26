@@ -26,7 +26,7 @@ IFS=$'\t' read -r model dir cost dur_ms added removed ctx_pct ctx_size in_tok \
 )
 
 for v in model dir cost dur_ms added removed ctx_pct ctx_size in_tok five_pct five_reset week_pct week_reset style; do
-  [[ ${!v} == _ ]] && printf -v "$v" ''
+  [[ ${!v} == _ ]] && printf -v "$v" '%s' ''
 done
 cost=${cost:-0}; dur_ms=${dur_ms:-0}; added=${added:-0}; removed=${removed:-0}; in_tok=${in_tok:-0}; ctx_size=${ctx_size:-200000}
 
@@ -42,7 +42,7 @@ sev() { local v=${1%.*}; v=${v:-0}
 # Usage bar for a rate-limit window: filled = usage, ┃ = how far through the window time is.
 # Usage fill ahead of the marker means you're burning faster than the clock.
 limit_bar() { # pct reset_epoch window_secs
-  local pct=${1%.*} reset=$2 win=$3 w=10 now el mark f i out="" c
+  local pct=${1%.*} reset=${2:-0} win=$3 w=10 now el mark f i out="" c
   pct=${pct:-0}; (( pct > 100 )) && pct=100
   f=$(( (pct * w + 50) / 100 )); mark=-1
   if [[ -n $reset ]]; then
@@ -68,7 +68,7 @@ until_reset() { # epoch seconds -> "2h13m" / "3d4h"
   elif (( d >= 3600  )); then printf '%dh%02dm' $((d/3600)) $((d%3600/60))
   else printf '%dm' $((d/60)); fi
   # clock time of the reset
-  printf ' %s@%s %s' $'\e[0m\e[38;5;238m' $'\e[0m\e[2m' "$(date -d "@$t" +%H:%M)"; }
+  printf ' %s@%s %s' $'\e[0m\e[38;5;238m' $'\e[0m\e[2m' "$(date -r "$t" +%H:%M 2>/dev/null || date -d "@$t" +%H:%M)"; }
 
 SEP="${DIM} │ ${R}"
 
@@ -156,7 +156,7 @@ if [[ -n $ctx_pct ]]; then
   used=$(human_tok "$in_tok"); tot=$(human_tok "$ctx_size")
   parts+=("ctx ${c}${ctx_pct%.*}%${R} ${DIM}${used}/${tot}${R}")
 else
-  parts+=("ctx ${DIM}–${R}")
+  parts+=("ctx ${DIM}_%${R} ${DIM}0/$(human_tok "$ctx_size")${R}")
 fi
 
 # Billing mode: env vars for API/cloud providers, else no rate_limits after a response => token billing.
@@ -196,16 +196,13 @@ parts+=("⏱ ${t}")
 
 # --- Rate limits (Pro/Max subscribers only), shown first
 limits=()
-if [[ -n $five_pct ]]; then
-  r="5h $(limit_bar "$five_pct" "$five_reset" 18000) ${five_pct%.*}%"
-  rs=$(until_reset "$five_reset"); [[ -n $rs ]] && r+=" ${DIM}↻${rs}${R}"
+for w in "5h:$five_pct:$five_reset:18000" "7d:$week_pct:$week_reset:604800"; do
+  IFS=: read -r lbl pct rst win <<<"$w"
+  if [[ -n $pct ]]; then shown="${pct%.*}%"; else shown="_%"; fi
+  r="$lbl $(limit_bar "${pct:-0}" "$rst" "$win") $shown"
+  rs=$(until_reset "$rst"); r+=" ${DIM}↻${rs:-now}${R}"
   limits+=("$r")
-fi
-if [[ -n $week_pct ]]; then
-  r="7d $(limit_bar "$week_pct" "$week_reset" 604800) ${week_pct%.*}%"
-  rs=$(until_reset "$week_reset"); [[ -n $rs ]] && r+=" ${DIM}↻${rs}${R}"
-  limits+=("$r")
-fi
+done
 
 line2=""
 for p in "${limits[@]}" "${parts[@]}"; do line2+="${line2:+$SEP}$p"; done
