@@ -1,0 +1,9 @@
+{
+  "theme": "dark-ansi",
+  "tui": "fullscreen",
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh",
+    "padding": 0
+  }
+}
