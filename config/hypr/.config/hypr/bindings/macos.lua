@@ -1,15 +1,15 @@
 local keys = require("keys")
 
 -- macOS-style shortcuts (Super in place of Cmd), forwarded as the Linux equivalent.
--- Copy/paste use Insert variants so they also work in terminals. A 4th column
--- overrides the target in terminals (false = do nothing) so Super+Z doesn't suspend the shell.
+-- A 4th column overrides the target in terminals (false = do nothing), e.g. so Super+Z
+-- doesn't suspend the shell. Paste avoids Shift+Insert, which pastes the primary selection.
 -- Deliberately skipped because Super+<key> is already taken:
 --   B (bold), K (link), L (address bar), 1-9 (tabs), Shift+T (reopen tab)
 keys.send_all({
 	-- Editing
-	{ "super+C", "ctrl+Insert", "Copy" },
-	{ "super+V", "shift+Insert", "Paste" },
-	{ "super+X", "ctrl+X", "Cut" },
+	{ "super+C", "ctrl+C", "Copy", "ctrl+Insert" },
+	{ "super+V", "ctrl+V", "Paste", "ctrl+shift+V" },
+	{ "super+X", "ctrl+X", "Cut", false },
 	{ "super+Z", "ctrl+Z", "Undo", false, { delay = 100 } },
 	{ "super+shift+Z", "ctrl+shift+Z", "Redo", false, { delay = 100 } },
 	{ "super+A", "ctrl+A", "Select All", "ctrl+shift+A" },
