@@ -1,3 +1,9 @@
+hl.config({
+  misc = {
+    disable_autoreload = true
+  }
+})
+
 require("monitors")
 require("programs")
 require("autostart")
