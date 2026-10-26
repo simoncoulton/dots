@@ -1,5 +1,7 @@
 bat
 btop
+dua-cli
+duf
 eza
 fastfetch
 fd
@@ -8,9 +10,8 @@ jq
 lazygit
 less
 mise
-ncdu
-duf
 mpv
+ncdu
 nvim
 posting
 ripgrep

@@ -1,6 +1,8 @@
-font-meslo-lg-nerd-font
-font-jetbrains-mono-nerd-font
-cask:nikitabobko/tap/aerospace
 bjarneo/cliamp/cliamp
+cask:darrylmorley/whatcable/whatcable
+cask:nikitabobko/tap/aerospace
+font-jetbrains-mono-nerd-font
+font-meslo-lg-nerd-font
 herdr
 hunk
+iina
