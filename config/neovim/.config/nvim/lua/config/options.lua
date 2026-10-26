@@ -22,7 +22,8 @@ opts.clipboard = "unnamedplus"
 opts.termguicolors = true
 -- opts.guifont = "Hack Nerd Font"
 -- opts.guifont = "FiraCode Nerd Font"
-opts.guifont = "MesloLGL Nerd Font"
+-- opts.guifont = "MesloLGL Nerd Font"
+opts.guifont = "JetBrainsMono Nerd Font"
 
 opts.cursorline = true
 
