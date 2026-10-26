@@ -1,0 +1,13 @@
+# whispertui theme "gruvbox-dark". Colours are #rrggbb or an ANSI name (reset, black, red, ...).
+# Add `base = "<built-in>"` to start from another theme and override only what you need.
+fg = "#ebdbb2"
+muted = "#928374"
+accent = "#fabd2f"
+border = "#504945"
+selection_bg = "#3c3836"
+success = "#b8bb26"
+info = "#83a598"
+warning = "#fe8019"
+error = "#fb4934"
+special = "#d3869b"
+bg = "#282828"

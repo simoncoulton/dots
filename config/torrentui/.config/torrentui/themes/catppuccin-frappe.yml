@@ -1,0 +1,16 @@
+# torrentui theme "catppuccin-frappe". The file name is the theme's name.
+# Colours: #rrggbb, an ANSI name (red, darkgray, reset, ...) or 0-255.
+# Add `base: <built-in theme>` to fill in any colour you remove.
+# `bg` is the page colour; `transparent_background: true` in config.yml (or B
+# in the app) lets the terminal's own background show instead.
+bg: "#303446"
+fg: "#c6d0f5"
+muted: "#737994"
+accent: "#8caaee"
+border: "#51576d"
+selection_bg: "#51576d"
+success: "#a6d189"
+info: "#85c1dc"
+warning: "#e5c890"
+error: "#e78284"
+special: "#ca9ee6"

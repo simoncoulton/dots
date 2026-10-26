@@ -1,0 +1,16 @@
+# whispertui theme "catppuccin-mocha". The file name is the theme's name.
+# Colours: #rrggbb, an ANSI name (red, darkgray, reset, ...) or 0-255.
+# Add `base: <built-in theme>` to fill in any colour you remove.
+# `bg` is the page colour; `transparent_background: true` in config.yml (or b
+# in the theme picker) lets the terminal's own background show instead.
+bg: "#1e1e2e"
+fg: "#cdd6f4"
+muted: "#6c7086"
+accent: "#89b4fa"
+border: "#45475a"
+selection_bg: "#45475a"
+success: "#a6e3a1"
+info: "#74c7ec"
+warning: "#f9e2af"
+error: "#f38ba8"
+special: "#cba6f7"

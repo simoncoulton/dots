@@ -1,0 +1,16 @@
+# rsstui theme "nord". The file name is the theme's name.
+# Colours: #rrggbb, an ANSI name (red, darkgray, reset, ...) or 0-255.
+# Add `base: <built-in theme>` to fill in any colour you remove.
+# `bg` is the page colour; `transparent_background: true` in config.yml (or b
+# in the app) lets the terminal's own background show instead.
+bg: "#2e3440"
+fg: "#d8dee9"
+muted: "#616e88"
+accent: "#88c0d0"
+border: "#4c566a"
+selection_bg: "#434c5e"
+success: "#a3be8c"
+info: "#81a1c1"
+warning: "#ebcb8b"
+error: "#bf616a"
+special: "#b48ead"

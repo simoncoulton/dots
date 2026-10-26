@@ -1,0 +1,13 @@
+# whispertui theme "default". Colours are #rrggbb or an ANSI name (reset, black, red, ...).
+# Add `base = "<built-in>"` to start from another theme and override only what you need.
+fg = "reset"
+muted = "darkgray"
+accent = "cyan"
+border = "darkgray"
+selection_bg = "reset"
+success = "green"
+info = "blue"
+warning = "yellow"
+error = "red"
+special = "magenta"
+bg = "reset"

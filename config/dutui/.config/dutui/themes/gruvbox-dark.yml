@@ -1,0 +1,16 @@
+# dutui theme "gruvbox-dark". The file name is the theme's name.
+# Colours: #rrggbb, an ANSI name (red, darkgray, reset, ...) or 0-255.
+# Add `base: <built-in theme>` to fill in any colour you remove.
+# `bg` is the page colour; `transparent: true` in dutui.yml (or b in the
+# theme picker) lets the terminal's own background show instead.
+bg: "#282828"
+fg: "#ebdbb2"
+muted: "#928374"
+accent: "#83a598"
+border: "#665c54"
+selection_bg: "#504945"
+success: "#b8bb26"
+info: "#8ec07c"
+warning: "#fabd2f"
+error: "#fb4934"
+special: "#d3869b"

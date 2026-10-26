@@ -1,0 +1,57 @@
+# torrentui configuration.
+# Everything here is optional; delete a line to get its default.
+
+# Where new torrents are saved. Accepts ~ . Default: your Downloads folder.
+# download_dir: ~/Downloads
+
+# Colour theme: default, tokyo-night, catppuccin-frappe, catppuccin-mocha,
+# dracula, one-dark, or the name of a theme defined under `themes:` below.
+# Everything except `default` uses 24-bit colour.  Press `t` in the app to
+# preview and pick a theme; the choice is saved here.
+theme: catppuccin-frappe
+
+# Speed limits. Use a unit: B, KiB, MiB or GiB, optionally followed by /s
+# (e.g. 500KiB/s, 2MiB/s). 0 means unlimited. Press `l` in the app to edit.
+max_download_speed: 0
+max_upload_speed: 100KiB/s
+
+# Maximum peers connected per torrent. 0 uses the engine default.
+peer_limit: 0
+
+# Use the DHT (trackerless peer discovery). Needed for most magnet links.
+dht: true
+
+# Offer a file picker for multi-file torrents before downloading.
+ask_files: true
+
+# Desktop notifications (via notify-send) from the background daemon when no
+# torrentui window is open: torrents added from a browser, failures, and
+# torrents waiting for a file selection.
+notify: true
+
+# Commands to run when a torrent finishes downloading. You can also run them
+# by hand on a finished torrent with `x`. No shell is involved: `run` is the
+# program followed by its arguments, and {path} {name} {hash} {tags} in the
+# arguments are replaced (tags are comma-separated). The same values are in
+# $TORRENTUI_PATH, $TORRENTUI_NAME, $TORRENTUI_HASH and $TORRENTUI_TAGS. With
+# `tags`, only torrents that have at least one of those tags run it. Output is
+# appended to ~/.local/share/torrentui/actions.log. Read at startup.
+#
+# on_complete:
+#   - name: sort movies
+#     run: ["~/bin/sort-movies.sh", "{path}", "{tags}"]
+#     tags: [movies]
+#     timeout_secs: 600     # 0 = no limit
+
+# Your own themes. Every colour is optional and inherits from `base`
+# (one of the built-in themes, default: `default`). Colours are #rrggbb,
+# an ANSI name such as `red`, or a 0-255 index.
+#
+# themes:
+#   my-theme:
+#     base: dracula
+#     accent: "#ff79c6"
+#     bg: "#101010"
+#   # Keys: bg fg muted accent border selection_bg success info warning error special
+
+transparent_background: true

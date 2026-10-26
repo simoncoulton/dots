@@ -1,0 +1,39 @@
+# formatui config. Edit it here (press E in the TUI) or from the rules modal (r).
+
+# List files that no rule matches in the TUI (toggle with t).
+show_unmatched: true
+
+# Colour theme (pick one with T in the TUI). Built-ins: default, tokyo-night,
+# catppuccin-frappe, catppuccin-mocha, catppuccin-macchiato, catppuccin-latte,
+# dracula, one-dark, gruvbox-dark, nord, solarized-dark, rose-pine, monokai,
+# github-dark, everforest, kanagawa. Every built-in also has an editable file in
+# the themes/ folder next to this one, and any other .yml file there is a new theme.
+theme: default
+
+# Use the terminal's own background instead of the theme's page colour.
+transparent_background: true
+
+# Optional: define or tweak themes here. Unset colours come from `base`.
+# themes:
+#   mine:
+#     base: dracula
+#     accent: '#ff8800'
+
+# Rules are tried in order and the first whose pattern matches a file wins.
+#
+# extensions: file types the rule applies to (default: mkv, mp4, avi; [] = any)
+# steps:      strip_brackets, dots_to_spaces, underscores_to_spaces, collapse_spaces
+#             (applied to the file name without extension, before matching)
+# template:   {group} or {group|filter|filter}; filters: upper, lower, title, trim, pad2
+rule:
+  - name: tv
+    extensions: [mkv, mp4, avi]
+    steps: [strip_brackets, dots_to_spaces, underscores_to_spaces]
+    pattern: '(?i)^(?P<title>.+?)(?: (?:19|20)\d{2})?(?: -)? S(?P<season>\d+)E(?P<episode>\d+)'
+    template: '{title} - S{season|pad2}E{episode|pad2}'
+
+  - name: movie
+    extensions: [mkv, mp4, avi]
+    steps: [strip_brackets, dots_to_spaces, underscores_to_spaces]
+    pattern: '^(?P<title>.+?) (?P<year>(?:19|20)\d{2})(?: |$)'
+    template: '{title} ({year})'

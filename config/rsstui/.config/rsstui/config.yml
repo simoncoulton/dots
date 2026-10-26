@@ -1,0 +1,96 @@
+# rsstui configuration.
+# Everything here is optional; delete a line to get its default.
+# Press E in the app to edit this file; it reloads when the editor exits.
+
+# Draw each article's lead image.
+images: true
+
+# Refresh all feeds every N minutes (0 disables auto-refresh).
+refresh_minutes: 0
+
+# "auto" detects kitty / iTerm2 / sixel support. Use "halfblocks" if your
+# terminal does not answer capability queries (input can stall otherwise).
+image_protocol: auto
+
+# Colour theme. Themes are the files in ~/.config/rsstui/themes/*.yml (a file
+# is written for each built-in on first run; edit them or add your own and they
+# are picked up the next time you press T). Press T in the app to preview and
+# pick one; the choice is saved here.
+theme: catppuccin-mocha
+
+# Show the terminal's own background instead of the theme's page colour.
+transparent_background: true
+
+# Your own themes, as an alternative to theme files. Every colour is optional
+# and inherits from `base` (one of the built-in themes, default: `default`).
+#
+# themes:
+#   my-theme:
+#     base: dracula
+#     accent: "#ff79c6"
+
+# Feeds. `folder` groups feeds in the Feeds pane; `tags` are for filtering
+# (press f). The app rewrites this block when you add, remove, tag or move a
+# feed; comments elsewhere in the file are kept.
+feeds:
+  - name: Hacker News
+    url: https://hnrss.org/frontpage
+    folder: News
+    tags: [aggregator, news]
+  - name: Lobsters
+    url: https://lobste.rs/rss
+    folder: News
+    tags: [aggregator, news]
+  - name: DEV Community
+    url: https://dev.to/feed
+    folder: News
+    tags: [community, news]
+  - name: 'Ars Technica: Technology Lab'
+    url: https://feeds.arstechnica.com/arstechnica/technology-lab
+    folder: News
+    tags: [news]
+  - name: Rust Blog
+    url: https://blog.rust-lang.org/feed.xml
+    folder: Languages & Platforms
+    tags: [languages, rust]
+  - name: Go Blog
+    url: https://go.dev/blog/feed.atom
+    folder: Languages & Platforms
+    tags: [go, languages]
+  - name: GitHub Blog
+    url: https://github.blog/feed/
+    folder: Languages & Platforms
+    tags: [platform]
+  - name: Cloudflare Blog
+    url: https://blog.cloudflare.com/rss/
+    folder: Languages & Platforms
+    tags: [infrastructure, platform]
+  - name: Simon Willison
+    url: https://simonwillison.net/atom/everything/
+    folder: Writers
+    tags: [ai, python]
+  - name: Julia Evans
+    url: https://jvns.ca/atom.xml
+    folder: Writers
+    tags: [learning, systems]
+  - name: Martin Fowler
+    url: https://martinfowler.com/feed.atom
+    folder: Writers
+    tags: [architecture]
+  - name: Dan Luu
+    url: https://danluu.com/atom.xml
+    folder: Writers
+    tags: [performance, systems]
+  - name: Coding Horror
+    url: https://blog.codinghorror.com/rss/
+    folder: Writers
+    tags: [software]
+  - name: Joel on Software
+    url: https://www.joelonsoftware.com/feed/
+    folder: Writers
+    tags: [management, software]
+  - name: The Pragmatic Engineer
+    url: https://newsletter.pragmaticengineer.com/feed
+    folder: Writers
+    tags: [careers, engineering]
+layout: horizontal

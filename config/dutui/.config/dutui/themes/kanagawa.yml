@@ -1,0 +1,16 @@
+# dutui theme "kanagawa". The file name is the theme's name.
+# Colours: #rrggbb, an ANSI name (red, darkgray, reset, ...) or 0-255.
+# Add `base: <built-in theme>` to fill in any colour you remove.
+# `bg` is the page colour; `transparent: true` in dutui.yml (or b in the
+# theme picker) lets the terminal's own background show instead.
+bg: "#1f1f28"
+fg: "#dcd7ba"
+muted: "#727169"
+accent: "#7e9cd8"
+border: "#54546d"
+selection_bg: "#2d4f67"
+success: "#98bb6c"
+info: "#7fb4ca"
+warning: "#e6c384"
+error: "#c34043"
+special: "#957fb8"

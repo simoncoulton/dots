@@ -1,0 +1,16 @@
+# torrentui theme "default". The file name is the theme's name.
+# Colours: #rrggbb, an ANSI name (red, darkgray, reset, ...) or 0-255.
+# Add `base: <built-in theme>` to fill in any colour you remove.
+# `bg` is the page colour; `transparent_background: true` in config.yml (or B
+# in the app) lets the terminal's own background show instead.
+bg: "reset"
+fg: "reset"
+muted: "darkgray"
+accent: "cyan"
+border: "reset"
+selection_bg: "reset"
+success: "green"
+info: "blue"
+warning: "yellow"
+error: "red"
+special: "magenta"

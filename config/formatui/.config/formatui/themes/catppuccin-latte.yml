@@ -1,0 +1,16 @@
+# formatui theme "catppuccin-latte". The file name is the theme's name.
+# Colours: #rrggbb, an ANSI name (red, darkgray, reset, ...) or 0-255.
+# Add `base: <built-in theme>` to fill in any colour you remove.
+# `bg` is the page colour; `transparent_background: true` in config.yml (or b
+# in the theme picker) lets the terminal's own background show instead.
+bg: "#eff1f5"
+fg: "#4c4f69"
+muted: "#9ca0b0"
+accent: "#1e66f5"
+border: "#bcc0cc"
+selection_bg: "#bcc0cc"
+success: "#40a02b"
+info: "#209fb5"
+warning: "#df8e1d"
+error: "#d20f39"
+special: "#8839ef"

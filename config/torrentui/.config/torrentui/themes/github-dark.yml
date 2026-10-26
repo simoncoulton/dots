@@ -1,0 +1,16 @@
+# torrentui theme "github-dark". The file name is the theme's name.
+# Colours: #rrggbb, an ANSI name (red, darkgray, reset, ...) or 0-255.
+# Add `base: <built-in theme>` to fill in any colour you remove.
+# `bg` is the page colour; `transparent_background: true` in config.yml (or B
+# in the app) lets the terminal's own background show instead.
+bg: "#0d1117"
+fg: "#c9d1d9"
+muted: "#8b949e"
+accent: "#58a6ff"
+border: "#30363d"
+selection_bg: "#30363d"
+success: "#3fb950"
+info: "#79c0ff"
+warning: "#d29922"
+error: "#f85149"
+special: "#bc8cff"

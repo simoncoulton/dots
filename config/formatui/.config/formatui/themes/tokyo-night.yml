@@ -1,0 +1,16 @@
+# formatui theme "tokyo-night". The file name is the theme's name.
+# Colours: #rrggbb, an ANSI name (red, darkgray, reset, ...) or 0-255.
+# Add `base: <built-in theme>` to fill in any colour you remove.
+# `bg` is the page colour; `transparent_background: true` in config.yml (or b
+# in the theme picker) lets the terminal's own background show instead.
+bg: "#1a1b26"
+fg: "#c0caf5"
+muted: "#565f89"
+accent: "#7aa2f7"
+border: "#3b4261"
+selection_bg: "#283457"
+success: "#9ece6a"
+info: "#7dcfff"
+warning: "#e0af68"
+error: "#f7768e"
+special: "#bb9af7"

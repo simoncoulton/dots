@@ -1,0 +1,16 @@
+# rsstui theme "rose-pine". The file name is the theme's name.
+# Colours: #rrggbb, an ANSI name (red, darkgray, reset, ...) or 0-255.
+# Add `base: <built-in theme>` to fill in any colour you remove.
+# `bg` is the page colour; `transparent_background: true` in config.yml (or b
+# in the app) lets the terminal's own background show instead.
+bg: "#191724"
+fg: "#e0def4"
+muted: "#6e6a86"
+accent: "#c4a7e7"
+border: "#403d52"
+selection_bg: "#403d52"
+success: "#9ccfd8"
+info: "#ebbcba"
+warning: "#f6c177"
+error: "#eb6f92"
+special: "#908caa"

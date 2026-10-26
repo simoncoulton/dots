@@ -1,0 +1,59 @@
+# whispertui configuration. The daemon reloads this file automatically.
+# Unknown keys are errors.
+
+# Hotkey that starts/stops recording. Join keys with "+".
+#   modifiers: cmd, option, ctrl, shift (or left_/right_ variants), fn
+#   keys:      a-z, 0-9, space, return, tab, f1-f20, ...
+# Examples: right_option, cmd+shift+space, ctrl+option+r, f13
+# A modifier-only hotkey fires on a clean tap (no other key pressed meanwhile).
+hotkey: right_option
+
+# toggle: press to start, press again to stop.  hold: record while held.
+mode: toggle
+
+# Pressing this key while recording discards the recording. "" disables it.
+cancel_key: escape
+
+# The whisper.cpp model, by name. Press M in the TUI (or run
+# `whispertui models`) to see what is available and download one.
+model: large-v3-turbo-q5_0
+whisper_bin: whisper-cli   # brew install whisper-cpp
+language: en               # "auto" to detect
+prompt: ""                 # optional initial prompt (names, jargon)
+threads: 0                 # 0 = whisper default
+
+# Microphone name (substring match). "" = system default.
+input_device: ""
+
+# What happens when a transcription finishes.
+copy_to_clipboard: true
+auto_paste: false          # also press Cmd+V (needs Accessibility permission)
+sounds: true
+notifications: true
+
+# Recordings.
+keep_audio: true
+max_history: 500
+max_record_secs: 600
+
+# Appearance of the TUI. Built-in themes: default, tokyo-night, catppuccin-frappe,
+# catppuccin-mocha, catppuccin-macchiato, catppuccin-latte, dracula, one-dark,
+# gruvbox-dark, nord, solarized-dark, rose-pine, monokai, github-dark, everforest,
+# kanagawa. Every *.yml in ~/.config/whispertui/themes/ is a theme too. Press T in
+# the TUI to preview and save.
+theme: "catppuccin-mocha"
+transparent_background: true   # show the terminal's own background
+# vertical: list and details side by side (30% / 70%); horizontal: stacked. L toggles.
+layout: vertical
+
+# Blank audio suppression: recordings without speech are dropped silently.
+silence:
+  enabled: true
+  threshold_db: -45.0      # raise (e.g. -35) in noisy rooms
+  min_speech_ms: 300
+
+# Custom theme: start from a built-in and override colours (#rrggbb or ANSI names).
+# themes:
+#   mine:
+#     base: nord
+#     accent: "#ff9e64"

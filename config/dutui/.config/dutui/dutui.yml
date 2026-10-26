@@ -1,0 +1,4 @@
+theme: catppuccin-frappe
+transparent: true
+cross_filesystems: false
+units: si

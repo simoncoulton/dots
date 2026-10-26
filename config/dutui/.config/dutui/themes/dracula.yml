@@ -1,0 +1,16 @@
+# dutui theme "dracula". The file name is the theme's name.
+# Colours: #rrggbb, an ANSI name (red, darkgray, reset, ...) or 0-255.
+# Add `base: <built-in theme>` to fill in any colour you remove.
+# `bg` is the page colour; `transparent: true` in dutui.yml (or b in the
+# theme picker) lets the terminal's own background show instead.
+bg: "#282a36"
+fg: "#f8f8f2"
+muted: "#6272a4"
+accent: "#bd93f9"
+border: "#44475a"
+selection_bg: "#44475a"
+success: "#50fa7b"
+info: "#8be9fd"
+warning: "#f1fa8c"
+error: "#ff5555"
+special: "#ff79c6"

@@ -1,0 +1,16 @@
+# whispertui theme "monokai". The file name is the theme's name.
+# Colours: #rrggbb, an ANSI name (red, darkgray, reset, ...) or 0-255.
+# Add `base: <built-in theme>` to fill in any colour you remove.
+# `bg` is the page colour; `transparent_background: true` in config.yml (or b
+# in the theme picker) lets the terminal's own background show instead.
+bg: "#272822"
+fg: "#f8f8f2"
+muted: "#75715e"
+accent: "#fd971f"
+border: "#49483e"
+selection_bg: "#49483e"
+success: "#a6e22e"
+info: "#66d9ef"
+warning: "#e6db74"
+error: "#f92672"
+special: "#ae81ff"

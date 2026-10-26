@@ -1,0 +1,16 @@
+# dutui theme "everforest". The file name is the theme's name.
+# Colours: #rrggbb, an ANSI name (red, darkgray, reset, ...) or 0-255.
+# Add `base: <built-in theme>` to fill in any colour you remove.
+# `bg` is the page colour; `transparent: true` in dutui.yml (or b in the
+# theme picker) lets the terminal's own background show instead.
+bg: "#2d353b"
+fg: "#d3c6aa"
+muted: "#859289"
+accent: "#7fbbb3"
+border: "#4f585e"
+selection_bg: "#475258"
+success: "#a7c080"
+info: "#83c092"
+warning: "#dbbc7f"
+error: "#e67e80"
+special: "#d699b6"
