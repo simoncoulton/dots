@@ -1,0 +1,89 @@
+[bar.default]
+background_opacity = 0.81
+capsule_radius = 6
+center = [ "clock", "bar", "widget" ]
+concave_edge_corners = false
+end = [
+    "media",
+    "tray",
+    "notifications",
+    "clipboard",
+    "speedtest-widget",
+    "network",
+    "bluetooth",
+    "volume",
+    "brightness",
+    "battery",
+    "control-center",
+    "session"
+]
+margin_ends = 0
+radius = 0
+radius_top_left = 4
+radius_top_right = 4
+start = [ "wallpaper", "workspaces", "active_window" ]
+thickness = 32
+widget_spacing = 12
+
+[lockscreen]
+transition_duration = 600
+
+[nightlight]
+enabled = true
+
+[plugins]
+enabled = [
+    "kenn/keybind-cheatsheet",
+    "nilsonlinux/speedtest-meter",
+    "oldirtty/color_picker",
+    "noctalia/world_clock",
+    "yuuto/arch-updater",
+    "thaer99ob/default-apps",
+    "weinguyen/shell-command"
+]
+
+[shell]
+corner_radius_scale = 0.4
+font_family = "JetBrainsMono Nerd Font"
+settings_window_translucent = true
+
+    [shell.launcher]
+    categories = false
+    layout = "simple"
+    show_icons = false
+
+    [shell.panel]
+    control_center_placement = "floating"
+
+[theme]
+builtin = "Catppuccin"
+community_palette = "Catppuccin Macchiato Blue"
+mode = "dark"
+source = "community"
+wallpaper_scheme = "m3-content"
+
+    [theme.templates]
+    enable_builtin_templates = true
+    builtin_ids = [ "gtk3", "gtk4", "qt", "hyprland" ]
+    enable_community_templates = false
+
+[widget.bar]
+type = "noctalia/world_clock:bar"
+
+[widget.bluetooth]
+enabled = false
+
+[widget.brightness]
+enabled = false
+
+[widget.media]
+hide_when_no_media = true
+
+[widget.network]
+show_label = false
+
+[widget.speedtest-widget]
+type = "nilsonlinux/speedtest-meter:speedtest-widget"
+
+[widget.widget]
+type = "yuuto/arch-updater:widget"

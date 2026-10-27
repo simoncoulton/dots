@@ -1,3 +1,4 @@
+adw-gtk-theme
 chromium
 docker
 docker-buildx
@@ -23,6 +24,7 @@ usbmuxd
 wiremix
 wl-clip-persist
 wl-clipboard
+xdg-utils
 xdg-desktop-portal-gtk
 xdg-desktop-portal-hyprland
 yay:1password
@@ -33,7 +35,6 @@ yay:herdr
 yay:hunk-bin
 yay:localsend
 yay:man
-yay:nwg-look
 yay:python-terminaltexteffects
 yay:speedtest-cli
 yay:spotify

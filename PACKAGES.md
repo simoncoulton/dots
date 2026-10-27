@@ -76,7 +76,6 @@ Packages are installed by `install/packages.sh` from the lists in `install/packa
 | `wl-clipboard`                | `wl-copy`/`wl-paste` clipboard utilities                   |
 | `wl-clip-persist`             | Keeps clipboard contents after the source app closes       |
 | `upower`                      | Power/battery information service                          |
-| `nwg-look`                    | GTK theme and settings editor for wlroots compositors      |
 
 ### Fonts
 
