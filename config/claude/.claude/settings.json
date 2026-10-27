@@ -1,5 +1,5 @@
 {
-  "theme": "dark-ansi",
+  "theme": "custom:readable",
   "tui": "fullscreen",
   "statusLine": {
     "type": "command",

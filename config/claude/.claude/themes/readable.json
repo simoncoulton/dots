@@ -1,0 +1,7 @@
+{
+  "name": "Readable",
+  "base": "dark-ansi",
+  "overrides": {
+    "userMessageBackground": "#292c3c"
+  }
+}
