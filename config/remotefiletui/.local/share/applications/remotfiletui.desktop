@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=remotefiletui
+Comment=Terminal UI for FTP/S3
+Exec=bash -c "\\$HOME/.cargo/bin/remotefiletui"
+Icon=utilities-terminal
+Terminal=true
+Categories=File Management;

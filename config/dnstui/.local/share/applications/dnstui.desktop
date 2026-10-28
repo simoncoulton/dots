@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=dnstui
+Comment=Terminal UI for DNS records and other similiar functions
+Exec=bash -c "\\$HOME/.cargo/bin/dnstui"
+Icon=utilities-terminal
+Terminal=true
+Categories=Network;

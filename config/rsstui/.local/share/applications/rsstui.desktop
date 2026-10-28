@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=rsstui
+Comment=Terminal UI for RSS
+Exec=bash -c "\\$HOME/.cargo/bin/rsstui"
+Icon=utilities-terminal
+Terminal=true
+Categories=News;

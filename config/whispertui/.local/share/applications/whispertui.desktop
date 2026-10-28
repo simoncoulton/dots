@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=whispertui
+Comment=Terminal UI for Whisper
+Exec=bash -c "\\$HOME/.cargo/bin/whispertui"
+Icon=utilities-terminal
+Terminal=true
+Categories=Voice;

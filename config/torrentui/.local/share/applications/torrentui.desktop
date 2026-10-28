@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=torrentui
+Comment=Terminal UI for Torrents
+Exec=bash -c "\\$HOME/.cargo/bin/torrentui"
+Icon=utilities-terminal
+Terminal=true
+Categories=File Sharing;

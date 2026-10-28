@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=dutui
+Comment=Terminal UI for Disk Usage
+Exec=bash -c "\\$HOME/.cargo/bin/dutui"
+Icon=utilities-terminal
+Terminal=true
+Categories=File Management;
